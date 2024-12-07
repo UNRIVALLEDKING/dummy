@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "image": "https://tiimg.tistatic.com/fp/1/009/099/designer-printed-bandhani-suit-material-008.jpg",
+      "title": "Designer Printed Bandhani Suit Material",
+      "price": "500 INR (Approx.)",
+      "unit": "Piece/Pieces",
+      "seller": "JAYSHREE BANDHEJ",
+      "category_id": 1
+    },
+    {
+      "id": 2,
+      "image": "https://tiimg.tistatic.com/fp/2/008/513/polyelectrolyte-flocculant-chemical-804.jpg",
+      "title": "Polyelectrolyte Flocculant Chemical",
+      "price": "210 INR (Approx.)",
+      "unit": "Kilograms/Kilograms",
+      "seller": "CHEMTEX SPECIALITY LTD.",
+      "category_id": 2
+    },
+    {
+      "id": 3,
+      "image": "https://tiimg.tistatic.com/fp/4/001/223/c-type-power-press-machine-683.jpg",
+      "title": "C Type Power Press Machine",
+      "price": "300000.00 INR (Approx.)",
+      "unit": "Piece/Pieces",
+      "seller": "JAY SHAKTI MACHINE TOOLS",
+      "category_id": 3
+    },
+    {
+      "id": 4,
+      "image": "https://tiimg.tistatic.com/fp/1/002/052/briquette-crusher-416.jpg",
+      "title": "Briquette Crusher",
+      "price": "1100000 INR (Approx.)",
+      "unit": "Piece/Pieces",
+      "seller": "ECOMAN",
+      "category_id": 3
+    },
+    {
+      "id": 5,
+      "image": "https://tiimg.tistatic.com/fp/1/009/027/dowel-pins-760.jpg",
+      "title": "Rust Free Round Dowel Pins",
+      "price": "Contact for Price",
+      "unit": "Piece/Pieces",
+      "seller": "MECHCON ENGINEERING",
+      "category_id": 4
+    },
+    {
+      "id": 6,
+      "image": "https://tiimg.tistatic.com/fp/2/008/533/laundry-liquid-detergent-500ml-728.jpg",
+      "title": "Blue Laundry Liquid Detergent - 500ML",
+      "price": "45.00 INR (Approx.)",
+      "unit": "Liter/Liters",
+      "seller": "TRUE ESSENCE FOODS AND CARE",
+      "category_id": 5
+    },
+    {
+        "id": 7,
+        "image": "https://cpimg.tistatic.com/08861522/b/4/Monocrystalline-Solar-Panel.jpg",
+        "title": "Monocrystalline Solar Panel Max Voltage: 220 Volt (V)",
+        "price": "200000 INR (Approx.)/Unit",
+        "unit": "Unit/Units",
+        "seller": "TECHNOVA EMERGING SOLUTIONS",
+        "category_id": 4
+      },
+      {
+        "id": 8,
+        "image": "https://cpimg.tistatic.com/09610397/b/4/Commercial-Solar-Panel.jpg",
+        "title": "Blue Commercial Solar Panel",
+        "price": "500000 INR (Approx.)",
+        "unit": "Unit/Units",
+        "seller": "RAJSURYA IMPEX",
+        "category_id": 4
+      },
+      {
+        "id": 9,
+        "image": "https://tiimg.tistatic.com/fp/1/001/134/work-jackets-740.jpg",
+        "title": "Work Jackets",
+        "price": "410 INR (Approx.)/Pack",
+        "unit": "Unit/Units",
+        "seller": "GOYAL TRADING COMPANY",
+        "category_id": 6
+      },
+      {
+        "id": 10,
+        "image": "https://cpimg.tistatic.com/09657769/b/4/Ladies-Quilted-Jacket..jpg",
+        "title": "Ladies Quilted Jacket Age Group: Adult",
+        "price": " 950 INR (Approx.)/Unit",
+        "unit": "Unit/Units",
+        "seller": "Jaipur Prime",
+        "category_id": 6
+      },
+      {
+        "id": 11,
+        "image": "https://cpimg.tistatic.com/09030317/b/5/TBA-2000FR-Fully-Automated-Clinical-Chemistry-Analyzer.jpg",
+        "title": "TBA-2000FR Fully Automated Clinical Chemistry Analyzer",
+        "price": "2100000 INR (Approx.)/Piece",
+        "unit": "Piece/Pieces",
+        "seller": "RAJ BIOSIS PRIVATE LIMITED",
+        "category_id": 2
+      },
+      {
+        "id": 12,
+        "image": "https://cpimg.tistatic.com/06780018/b/4/Biological-Indicator-for-Steam-ETO.jpg",
+        "title": "Steel Biological Indicator For Steam And Eto",
+        "price": "35000.00 - 200000.00 INR (Approx.)/Piece",
+        "unit": "Piece/Pieces",
+        "seller": "STERI - TECHNO FAB",
+        "category_id": 2
+      }
+  ]
+  

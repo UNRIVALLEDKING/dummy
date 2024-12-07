@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "name": "Common Medicines & Drugs",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Common-Medicines-Drugs-455.png"
+    },
+    {
+      "id": 2,
+      "name": "Medical, Diagnostic & Hospital Supplies",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Medical-Diagnostic-Hospital-Supplies-464.png"
+    },
+    {
+      "id": 3,
+      "name": "Personal Care Products",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Personal-Care-Products-466.png"
+    },
+    {
+      "id": 4,
+      "name": "Solar Panels",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Solar-Panels-1808.png"
+    },
+    {
+      "id": 5,
+      "name": "Human Hair & Accessories",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Human-Hair-Accessories-772.png"
+    },
+    {
+      "id": 6,
+      "name": "Jackets",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Jackets-41.png"
+    },
+    {
+      "id": 7,
+      "name": "Fork Lift Trucks",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Fork-Lift-Trucks-1004.png"
+    },
+    {
+      "id": 8,
+      "name": "Heaters",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Heaters-300.png"
+    },
+    {
+      "id": 9,
+      "name": "Blankets",
+      "imageUrl": "https://tiimg.tistatic.com/categoryimg/v1/1/Blankets-1109.png"
+    }
+  ]
+  

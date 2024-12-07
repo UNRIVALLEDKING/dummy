@@ -1,9 +1,12 @@
-import { useState } from 'react';
-import { mainLogo } from '../assets';
-import LocaleSelect from './locale/LocaleSelect';
+import { useState } from "react";
+import { mainLogo } from "../assets";
+import LocaleSelect from "./locale/LocaleSelect";
 
 export default function Navbar() {
-  const [selectedSearch, setSelectedSearch] = useState('Products');
+  const [selectedSearch, setSelectedSearch] = useState("Products");
+  const openModal = () => {
+    document.getElementById("login_modal").showModal();
+  };
   return (
     <header className="bg-background sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
@@ -45,6 +48,7 @@ export default function Navbar() {
               <a
                 className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-white shadow"
                 href="#"
+                onClick={openModal}
               >
                 Login
               </a>
