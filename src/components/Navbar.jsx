@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { mainLogo } from "../assets";
-import LocaleSelect from "./locale/LocaleSelect";
+import { useState } from 'react';
+import { mainLogo } from '../assets';
+import LocaleSelect from './locale/LocaleSelect';
+import { useNavigate } from 'react-router';
 
 export default function Navbar() {
-  const [selectedSearch, setSelectedSearch] = useState("Products");
+  const [selectedSearch, setSelectedSearch] = useState('Products');
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
   const openModal = () => {
-    document.getElementById("login_modal").showModal();
+    document.getElementById('login_modal').showModal();
+  };
+
+  const handleSearch = () => {
+    navigate(`/products?query=${searchQuery}`);
   };
   return (
     <header className="bg-background sticky top-0 z-50 shadow-sm">
@@ -34,9 +41,14 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="What are you looking for?"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="input min-w-72 flex-1 p-0 m-0 bg-inherit text-inherit rounded-r-full px-5 focus:outline-none"
             />
-            <button className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-white shadow">
+            <button
+              onClick={handleSearch}
+              className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-white shadow"
+            >
               Search
             </button>
           </div>
@@ -54,7 +66,7 @@ export default function Navbar() {
               </a>
               <a
                 className="border rounded-full border-primary text-secondary px-5 py-2.5 text-sm font-medium"
-                href="#"
+                href="/sellers-login"
               >
                 Become Seller
               </a>
