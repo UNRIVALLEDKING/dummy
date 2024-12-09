@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiFilter } from "react-icons/fi";
 import productsData from "../data/products.json";
 import categoriesData from "../data/categories.json";
+import { useNavigate } from "react-router";
 
 export default function ProductPage() {
   // const products = Array.from({ length: 12 }, (_, i) => ({
@@ -28,6 +29,11 @@ export default function ProductPage() {
       );
     }
   };
+
+  const navigate = useNavigate();
+  function handleGoTo(id) {
+    navigate(`/product/${id}`);
+  }
 
   return (
     <div className="container mx-auto ">
@@ -169,7 +175,8 @@ export default function ProductPage() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white h-fit rounded-lg shadow-lg hover:shadow-xl transition border border-gray-200 overflow-hidden"
+              onClick={() => handleGoTo(product.id)}
+              className="bg-white cursor-pointer h-fit rounded-lg shadow-lg hover:shadow-xl transition border border-gray-200 overflow-hidden"
             >
               <div className="p-4   ">
                 <img
