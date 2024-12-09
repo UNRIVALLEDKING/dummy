@@ -9,39 +9,39 @@ import {
   FiGlobe,
   FiTrendingUp,
   FiBriefcase,
-} from "react-icons/fi";
-import FeaturedProducts from "../components/home/FeaturedProducts";
-import TrendingCategoriesCarousel from "../components/home/TrendingCategoriesCarousel";
+} from 'react-icons/fi';
+import FeaturedProducts from '../components/home/FeaturedProducts';
+import TrendingCategoriesCarousel from '../components/home/TrendingCategoriesCarousel';
 
 export default function HomePage() {
   const categories = [
     {
-      name: "Health & Beauty",
+      name: 'Health & Beauty',
       icon: <FiHeart className="h-6 w-6 text-primary" />,
     },
     {
-      name: "Apparel & Fashion",
+      name: 'Apparel & Fashion',
       icon: <FiShoppingCart className="h-6 w-6 text-tri" />,
     },
-    { name: "Chemicals", icon: <FiBox className="h-6 w-6 text-secondary" /> },
+    { name: 'Chemicals', icon: <FiBox className="h-6 w-6 text-secondary" /> },
     {
-      name: "Gifts & Crafts",
+      name: 'Gifts & Crafts',
       icon: <FiGift className="h-6 w-6 text-forth" />,
     },
     {
-      name: "Education Supplies",
+      name: 'Education Supplies',
       icon: <FiBook className="h-6 w-6 text-primary" />,
     },
     {
-      name: "Electronics",
+      name: 'Electronics',
       icon: <FiPhone className="h-6 w-6 text-secondary" />,
     },
     {
-      name: "Technology",
+      name: 'Technology',
       icon: <FiCpu className="h-6 w-6 text-primary" />,
     },
     {
-      name: "Global Trade",
+      name: 'Global Trade',
       icon: <FiGlobe className="h-6 w-6 text-tri" />,
     },
   ];
@@ -49,24 +49,24 @@ export default function HomePage() {
   const highlights = [
     {
       icon: <FiTrendingUp className="h-8 w-8 text-secondary" />,
-      title: "Business Growth",
-      description: "Boost your sales with our advanced tools.",
+      title: 'Business Growth',
+      description: 'Boost your sales with our advanced tools.',
     },
     {
       icon: <FiBriefcase className="h-8 w-8 text-primary" />,
-      title: "Enterprise Solutions",
-      description: "Tailored services for large-scale businesses.",
+      title: 'Enterprise Solutions',
+      description: 'Tailored services for large-scale businesses.',
     },
     {
       icon: <FiGift className="h-8 w-8 text-forth" />,
-      title: "Exclusive Offers",
-      description: "Unlock premium benefits with our membership.",
+      title: 'Exclusive Offers',
+      description: 'Unlock premium benefits with our membership.',
     },
   ];
 
   return (
     <div className="min-h-screen bg-background p-4">
-      <div className="container mx-auto grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-6">
         {/* Left Menu */}
         <div className="col-span-12 sm:col-span-3 bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-xl font-bold text-secondary mb-4">
@@ -170,7 +170,7 @@ export default function HomePage() {
       {/* Featured Products */}
       <FeaturedProducts />
 
-      <FeaturedProducts title={"Air Cleaning Equipment"} />
+      <FeaturedProducts title={'Air Cleaning Equipment'} />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { mainLogo } from '../assets';
 export default function Footer() {
   return (
     <>
-      <footer className="footer bg-background text-secondary p-10">
+      <footer className="footer z-50 bg-background text-secondary p-10">
         <nav>
           <h6 className="footer-title text-secondary font-bold text-xl">
             Company
@@ -20,11 +20,17 @@ export default function Footer() {
           <h6 className="footer-title text-secondary font-bold text-xl">
             For Investors
           </h6>
-          <a className="link link-hover hover:text-primary">Vision, Mission & Milestones</a>
-          <a className="link link-hover hover:text-primary">Corporate Responsibility</a>
+          <a className="link link-hover hover:text-primary">
+            Vision, Mission & Milestones
+          </a>
+          <a className="link link-hover hover:text-primary">
+            Corporate Responsibility
+          </a>
           <a className="link link-hover hover:text-primary">Career</a>
           <a className="link link-hover hover:text-primary">FAQ</a>
-          <a className="link link-hover hover:text-primary">Feedback & Suggestions Form</a>
+          <a className="link link-hover hover:text-primary">
+            Feedback & Suggestions Form
+          </a>
         </nav>
         <nav>
           <h6 className="footer-title text-secondary font-bold text-xl">
@@ -46,8 +52,12 @@ export default function Footer() {
           <h6 className="footer-title text-secondary font-bold text-xl">
             Quick Links
           </h6>
-          <a className="link link-hover hover:text-primary">HSN Code & Duties </a>
-          <a className="link link-hover hover:text-primary">Video Marketing & Live Streams</a>
+          <a className="link link-hover hover:text-primary">
+            HSN Code & Duties{' '}
+          </a>
+          <a className="link link-hover hover:text-primary">
+            Video Marketing & Live Streams
+          </a>
           <a className="link link-hover hover:text-primary">Free Webinar</a>
           <a className="link link-hover hover:text-primary">Blogs</a>
           <a className="link link-hover hover:text-primary">Hiring</a>
@@ -56,17 +66,25 @@ export default function Footer() {
           <h6 className="footer-title text-secondary font-bold text-xl">
             Business Hours
           </h6>
-          <p className="link link-hover hover:text-primary">Monday - Saturday </p>
-          <p className="link link-hover hover:text-primary">(10:00 am to 6:00 pm)</p>
+          <p className="link link-hover hover:text-primary">
+            Monday - Saturday{' '}
+          </p>
+          <p className="link link-hover hover:text-primary">
+            (10:00 am to 6:00 pm)
+          </p>
           <p className="link link-hover hover:text-primary">Sunday: Closed</p>
         </nav>
         <nav>
           <h6 className="footer-title text-secondary font-bold text-xl">
             Contact us
           </h6>
-          <p className="link link-hover hover:text-primary">ABC, xyz, Navi Mumbai - 400706</p>
+          <p className="link link-hover hover:text-primary">
+            ABC, xyz, Navi Mumbai - 400706
+          </p>
           <p className="link link-hover hover:text-primary">+91 99999 99999</p>
-          <p className="link link-hover hover:text-primary">info@list2Ship.com</p>
+          <p className="link link-hover hover:text-primary">
+            info@list2Ship.com
+          </p>
         </nav>
       </footer>
       <footer className="footer bg-background text-secondary border-base-300 border-t px-10 py-4">
