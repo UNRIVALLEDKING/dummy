@@ -1,5 +1,5 @@
-import CompanySidebar from './CompanySidebar';
-import Navbar from './Navbar';
+import CompanySidebar from "./CompanySidebar";
+import Navbar from "./Navbar";
 
 // eslint-disable-next-line react/prop-types
 const Layout = ({ children }) => {

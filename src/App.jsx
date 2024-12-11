@@ -1,16 +1,18 @@
-import { Route, Routes } from 'react-router';
-import './App.css';
-import HomePage from './pages/HomePage';
-import LandingPage from './pages/LandingPage';
-import Footer from './components/Footer';
-import LoginModal from './components/LoginModal';
-import ProductPage from './pages/ProductPage';
-import SellersLogin from './pages/SellersLogin';
-import ProductDetailPage from './pages/ProductDetailPage';
-import ChatPage from './pages/ChatPage';
-import PostRequirement from './pages/PostRequirement';
-import CompanyProfile from './pages/CompanyProfile';
-import Layout from './components/RootLayout';
+import { Route, Routes } from "react-router";
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import LandingPage from "./pages/LandingPage";
+import Footer from "./components/Footer";
+import LoginModal from "./components/LoginModal";
+import ProductPage from "./pages/ProductPage";
+import SellersLogin from "./pages/SellersLogin";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import ChatPage from "./pages/ChatPage";
+import PostRequirement from "./pages/PostRequirement";
+import CompanyProfile from "./pages/CompanyProfile";
+import Layout from "./components/RootLayout";
+import CompanyProducts from "./pages/company/CompanyProducts";
+import CompanyOrders from "./pages/company/CompanyOrders";
 
 function App() {
   return (
@@ -30,6 +32,14 @@ function App() {
                 <Route path="/sellers-login" element={<SellersLogin />} />
                 <Route path="/post-requirement" element={<PostRequirement />} />
                 <Route path="/company-dashboard" element={<CompanyProfile />} />
+                <Route
+                  path="/company-dashboard/products"
+                  element={<CompanyProducts />}
+                />
+                <Route
+                  path="/company-dashboard/orders"
+                  element={<CompanyOrders />}
+                />
               </Routes>
             </Layout>
           }
