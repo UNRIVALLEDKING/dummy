@@ -13,6 +13,7 @@ import CompanyProfile from "./pages/CompanyProfile";
 import Layout from "./components/RootLayout";
 import CompanyProducts from "./pages/company/CompanyProducts";
 import CompanyOrders from "./pages/company/CompanyOrders";
+import CompanyPublicProfile from "./pages/company/CompanyPublicProfile";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
                 <Route
                   path="/company-dashboard/orders"
                   element={<CompanyOrders />}
+                />
+                <Route
+                  path="/company/public-profile"
+                  element={<CompanyPublicProfile />}
                 />
               </Routes>
             </Layout>

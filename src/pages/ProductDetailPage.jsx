@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from "react";
 import productData from "../data/products.json";
 import { useParams, useNavigate } from "react-router";
@@ -40,6 +41,12 @@ function ProductDetailPage() {
         <h1 className="text-4xl font-bold text-gray-800">
           {productDetails.title}
         </h1>
+        <p
+          onClick={() => navigate("/company/public-profile")}
+          className=" link mb-0 text-primary font-semibold mt-1  "
+        >
+          Tech Innovators Inc.
+        </p>
       </div>
 
       {/* Main Content */}
@@ -134,7 +141,11 @@ function ProductDetailPage() {
           {relatedProducts.map((item) => (
             <div
               key={item.id}
-              className="p-4 border border-gray-300 rounded-lg shadow hover:shadow-lg transition"
+              onClick={() => {
+                navigate(`/product/${item.id}`);
+                window.scrollTo(0, 0);
+              }}
+              className="p-4 border cursor-pointer border-gray-300 rounded-lg shadow hover:shadow-lg transition"
             >
               <img
                 src={item.image}

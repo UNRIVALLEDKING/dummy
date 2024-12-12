@@ -1,56 +1,16 @@
 /* eslint-disable react/prop-types */
 import { FiSend } from "react-icons/fi";
+import productsData from "../../data/products.json";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function FeaturedProducts({ title }) {
-  const products = [
-    {
-      image:
-        "https://tiimg.tistatic.com/fp/1/009/099/designer-printed-bandhani-suit-material-008.jpg",
-      title: "Designer Printed Bandhani Suit Material",
-      price: "500 INR (Approx.)",
-      unit: "Piece/Pieces",
-      seller: "JAYSHREE BANDHEJ",
-    },
-    {
-      image:
-        "https://tiimg.tistatic.com/fp/2/008/513/polyelectrolyte-flocculant-chemical-804.jpg",
-      title: "Polyelectrolyte Flocculant Chemical",
-      price: "210 INR (Approx.)",
-      unit: "Kilograms/Kilograms",
-      seller: "CHEMTEX SPECIALITY LTD.",
-    },
-    {
-      image:
-        "https://tiimg.tistatic.com/fp/4/001/223/c-type-power-press-machine-683.jpg",
-      title: "C Type Power Press Machine",
-      price: "300000.00 INR (Approx.)",
-      unit: "Piece/Pieces",
-      seller: "JAY SHAKTI MACHINE TOOLS",
-    },
-    {
-      image:
-        "https://tiimg.tistatic.com/fp/1/002/052/briquette-crusher-416.jpg",
-      title: "Briquette Crusher",
-      price: "1100000 INR (Approx.)",
-      unit: "Piece/Pieces",
-      seller: "ECOMAN",
-    },
-    {
-      image: "https://tiimg.tistatic.com/fp/1/009/027/dowel-pins-760.jpg",
-      title: "Rust Free Round Dowel Pins",
-      price: "Contact for Price",
-      unit: "Piece/Pieces",
-      seller: "MECHCON ENGINEERING",
-    },
-    {
-      image:
-        "https://tiimg.tistatic.com/fp/2/008/533/laundry-liquid-detergent-500ml-728.jpg",
-      title: "Blue Laundry Liquid Detergent - 500ML",
-      price: "45.00 INR (Approx.)",
-      unit: "Liter/Liters",
-      seller: "TRUE ESSENCE FOODS AND CARE",
-    },
-  ];
+  const [products, setProducts] = useState(productsData.slice(0, 6));
+
+  const navigate = useNavigate();
+  const handleGoTo = (id) => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <div className="py-10 px-4 ">
@@ -82,9 +42,11 @@ export default function FeaturedProducts({ title }) {
                 </p>
                 <p className="text-fourth text-sm mt-2">{product.seller}</p>
               </div>
-              <button className="mt-auto mb-4 flex items-center mx-3 justify-center bg-primary text-white py-2 px-4 rounded-md font-medium hover:bg-secondary hover:text-white transition">
-                Send Inquiry
-                <FiSend className="ml-2" />
+              <button
+                onClick={() => handleGoTo(product.id)}
+                className="mt-auto mb-4 flex items-center mx-3 justify-center bg-primary text-white py-2 px-4 rounded-md font-medium hover:bg-secondary hover:text-white transition"
+              >
+                View Details
               </button>
             </div>
           ))}
