@@ -75,13 +75,13 @@ export default function LandingPage() {
           <div className="relative overflow-hidden rounded-lg shadow-md text-white">
             {/* Background Image with Light Gradient Overlay */}
             <div
-              className="absolute inset-0 bg-cover bg-center z-0"
+              className="absolute bg-left inset-0 bg-cover z-0"
               style={{
                 backgroundImage:
-                  'url("https://s.alicdn.com/@img/imgextra/i4/O1CN01ustqhi1Tz44lu4arh_!!6000000002452-0-tps-3840-1248.jpg_q60.jpg")',
+                  'url("https://www.ust.com/content/dam/ust/images/people/event-banner-image.jpg")',
               }}
             />
-            <div className="absolute inset-0 bg-cover bg-center w-ful h-full opacity-25 bg-gradient-to-r from-primary to-secondary" />
+            <div className="absolute inset-0 bg-cover bg-center w-ful h-full opacity-50 bg-gradient-to-r from-primary to-secondary" />
 
             <div className="relative z-10 p-8 lg:p-12">
               <h2 className="text-3xl font-bold mb-4">
