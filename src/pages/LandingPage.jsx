@@ -1,126 +1,129 @@
-import {
-  FiHeart,
-  FiShoppingCart,
-  FiBox,
-  FiGift,
-  FiBook,
-  FiPhone,
-  FiCpu,
-  FiGlobe,
-} from 'react-icons/fi';
+import { ArrowRight } from 'lucide-react';
 
+import ServiceButtons from '../components/services/ServiceButtons';
+
+import {
+  Globe,
+  Users,
+  BarChart,
+  Video,
+  Shield,
+  Headphones,
+} from 'lucide-react';
+import Membership from '../components/membership/Membership';
+import Services from '../components/services/Services';
+import VideoShowcase from '../components/videos/VideoShowcase';
 export default function LandingPage() {
-  const categories = [
+  const features = [
     {
-      name: 'Health & Beauty',
-      icon: <FiHeart className="h-6 w-6 text-primary" />,
+      icon: Globe,
+      title: 'Global Marketplace',
+      description:
+        'Connect with verified suppliers and buyers worldwide through our comprehensive trading platform.',
     },
     {
-      name: 'Apparel & Fashion',
-      icon: <FiShoppingCart className="h-6 w-6 text-tri" />,
-    },
-    { name: 'Chemicals', icon: <FiBox className="h-6 w-6 text-secondary" /> },
-    {
-      name: 'Gifts & Crafts',
-      icon: <FiGift className="h-6 w-6 text-forth" />,
+      icon: Video,
+      title: 'Live Broadcasting',
+      description:
+        'Showcase products through live streams, interactive demos, and virtual trade shows.',
     },
     {
-      name: 'Education Supplies',
-      icon: <FiBook className="h-6 w-6 text-primary" />,
+      icon: Shield,
+      title: 'Verified Partners',
+      description:
+        'All suppliers and products undergo thorough verification for secure trading.',
     },
     {
-      name: 'Electronics',
-      icon: <FiPhone className="h-6 w-6 text-secondary" />,
+      icon: Users,
+      title: 'Business Network',
+      description:
+        'Build lasting relationships with importers, exporters, manufacturers, and distributors.',
     },
     {
-      name: 'Technology',
-      icon: <FiCpu className="h-6 w-6 text-primary" />,
+      icon: BarChart,
+      title: 'Analytics Dashboard',
+      description:
+        'Track performance, market trends, and business insights in real-time.',
     },
     {
-      name: 'Global Trade',
-      icon: <FiGlobe className="h-6 w-6 text-tri" />,
+      icon: Headphones,
+      title: '24/7 Support',
+      description:
+        'Access multilingual support and assistance whenever you need it.',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background p-4">
-      <div className="container mx-auto grid grid-cols-12 gap-6">
-        {/* Left Menu */}
-        <div className="col-span-12 sm:col-span-3 bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-bold text-secondary mb-4">
-            Top Categories
-          </h2>
-          <ul className="space-y-3">
-            {categories.map((category, index) => (
-              <li
-                key={index}
-                className="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 cursor-pointer transition"
-              >
-                {category.icon}
-                <span className="text-gray-700 font-medium">
-                  {category.name}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#"
-            className="block text-primary mt-6 font-semibold hover:underline text-center"
-          >
-            View all Categories
-          </a>
-        </div>
-
-        <div className="col-span-12 sm:col-span-9 space-y-6">
-          <div className="relative overflow-hidden rounded-lg shadow-md text-white">
-            {/* Background Image with Light Gradient Overlay */}
-            <div
-              className="absolute bg-left inset-0 bg-cover z-0"
-              style={{
-                backgroundImage:
-                  'url("https://www.ust.com/content/dam/ust/images/people/event-banner-image.jpg")',
-              }}
-            />
-            <div className="absolute inset-0 bg-cover bg-center w-ful h-full opacity-50 bg-gradient-to-r from-primary to-secondary" />
-
-            <div className="relative z-10 p-8 lg:p-12">
-              <h2 className="text-3xl font-bold mb-4">
-                One-Stop Global Trade Platform
-              </h2>
-              <p className="text-lg mb-6 text-gray-100 max-w-2xl">
-                List2Ship: Connect, Trade, Grow. Your comprehensive marketplace
-                bridging Manufacturers, Suppliers, Importers, Exporters, and
-                Distributors worldwide. Simplify your global business
-                connections.
+    <main>
+      <div className="relative pb-20">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 space-y-8">
+              <h1 className="text-5xl font-bold text-secondary leading-tight">
+                Revolutionizing Global Trade & Business Networking
+              </h1>
+              <p className="text-xl text-[#393939]/80">
+                Connect with verified suppliers, streamline operations, and grow
+                your business globally with List2Ship&apos;s comprehensive
+                platform.
               </p>
-              <div className="flex space-x-4">
-                <button className="bg-white text-primary font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition">
-                  Join Now
+              <div className="flex items-center space-x-4">
+                <button className="bg-[#f37a1f] text-white px-8 py-3 rounded-full hover:bg-[#e06a10] transition-colors flex items-center space-x-2">
+                  <span>Get Started</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
-                <button className="border border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white/10 transition">
+                <button className="border border-[#a4b6c2] text-[#393939] px-8 py-3 rounded-full hover:bg-[#d0d0c4]/10 transition-colors">
                   Learn More
                 </button>
               </div>
-
-              {/* Small feature highlights */}
-              <div className="mt-8 flex space-x-6 text-gray-100">
-                <div className="flex items-center space-x-2">
-                  <FiGlobe className="h-5 w-5" />
-                  <span>Global Reach</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <FiCpu className="h-5 w-5" />
-                  <span>Smart Connections</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <FiBox className="h-5 w-5" />
-                  <span>Diverse Industries</span>
-                </div>
-              </div>
+            </div>
+            <div className="flex-1">
+              <img
+                src="https://images.unsplash.com/photo-1681949287382-052ea3954a51"
+                alt="Global Trade Network"
+                className="rounded-lg shadow-2xl"
+              />
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <ServiceButtons />
+      <section id="features" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#393939] mb-4">
+              Powerful Features for Modern Trade
+            </h2>
+            <p className="text-xl text-[#393939]/80">
+              Everything you need to succeed in global commerce
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 border border-[#d0d0c4] rounded-xl hover:shadow-lg transition-shadow"
+              >
+                <feature.icon className="w-12 h-12 text-[#f37a1f] mb-4" />
+                <h3 className="text-xl font-semibold text-[#393939] mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-[#393939]/80">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Membership />
+
+      <Services />
+
+      <VideoShowcase />
+      {/* <ServiceButtons />
+      <Features />
+      <Membership />
+      <Services />
+      <VideoShowcase /> */}
+    </main>
   );
 }

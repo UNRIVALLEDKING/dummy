@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { mainLogo } from '../assets';
+// import { mainLogo } from '../assets';
 import LocaleSelect from './locale/LocaleSelect';
 import { useNavigate } from 'react-router';
 import { getRandomProfileImage } from '../constants/functions';
+import { Ship } from 'lucide-react';
 
 export default function Navbar() {
   const [selectedSearch, setSelectedSearch] = useState('Products');
@@ -70,8 +71,12 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center">
-            <a className="block text-teal-600" href="/">
-              <img src={mainLogo} className="w-52" alt="Main Logo" />
+            <a className="flex text-teal-600" href="/">
+              {/* <img src={mainLogo} className="w-52" alt="Main Logo" /> */}
+              <Ship className="h-8 w-8 text-primary" />
+              <span className="text-xl font-bold text-secondary">
+                List2Ship
+              </span>
             </a>
           </div>
 
