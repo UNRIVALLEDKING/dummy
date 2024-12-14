@@ -65,7 +65,7 @@ const CompanyProfile = () => {
                     'https://www.ust.com/content/dam/ust/images/people/event-banner-image.jpg'
                   }
                   alt="Cover"
-                  className="w-full object-left-top h-64 md:h-80 object-cover"
+                  className="w-full object-left-top  h-64 md:h-80 object-cover"
                 />
                 <img
                   src={companyData.logo || miniLogo}
