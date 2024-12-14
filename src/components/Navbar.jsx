@@ -19,19 +19,49 @@ export default function Navbar() {
     navigate(`/products?query=${searchQuery}`);
   };
 
+  // useEffect(() => {
+  //   // Check localStorage for userData or companyData
+  //   const userData = localStorage.getItem('userData');
+  //   const companyData = localStorage.getItem('companyData');
+  //   if (userData) {
+  //     setIsLoggedIn(true);
+  //     setProfileRedirect('/profile');
+  //   } else if (companyData) {
+  //     setIsLoggedIn(true);
+  //     setProfileRedirect('/company-dashboard');
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, []);
+
   useEffect(() => {
-    // Check localStorage for userData or companyData
-    const userData = localStorage.getItem('userData');
-    const companyData = localStorage.getItem('companyData');
-    if (userData) {
-      setIsLoggedIn(true);
-      setProfileRedirect('/profile');
-    } else if (companyData) {
-      setIsLoggedIn(true);
-      setProfileRedirect('/company-dashboard');
-    } else {
-      setIsLoggedIn(false);
-    }
+    // Initial check
+    const checkAuthStatus = () => {
+      const userData = localStorage.getItem('userData');
+      const companyData = localStorage.getItem('companyData');
+
+      if (userData) {
+        setIsLoggedIn(true);
+        setProfileRedirect('/profile');
+      } else if (companyData) {
+        setIsLoggedIn(true);
+        setProfileRedirect('/company-dashboard');
+      } else {
+        setIsLoggedIn(false);
+        setProfileRedirect('');
+      }
+    };
+
+    // Check on initial load
+    checkAuthStatus();
+
+    // Listen for auth status changes
+    window.addEventListener('authStatusChanged', checkAuthStatus);
+
+    // Cleanup listener
+    return () => {
+      window.removeEventListener('authStatusChanged', checkAuthStatus);
+    };
   }, []);
 
   return (

@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react";
-import { FaEdit, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
-import { miniLogo } from "../assets";
+import { useEffect, useState } from 'react';
+import { FaEdit, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { miniLogo } from '../assets';
 
 const CompanyProfile = () => {
   const [companyData, setCompanyData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    pan: "",
-    gst: "",
+    pan: '',
+    gst: '',
     bankDetails: null,
-    ownerName: "",
+    ownerName: '',
     idProof: null,
   });
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("companyData"));
+    const data = JSON.parse(localStorage.getItem('companyData'));
     setCompanyData(data);
   }, []);
 
   useEffect(() => {
     if (companyData) {
       setFormData({
-        pan: companyData.pan || "",
-        gst: companyData.gst || "",
+        pan: companyData.pan || '',
+        gst: companyData.gst || '',
         bankDetails: companyData.bankDetails || null,
-        ownerName: companyData.ownerName || "",
+        ownerName: companyData.ownerName || '',
         idProof: companyData.idProof || null,
       });
     }
@@ -47,7 +47,7 @@ const CompanyProfile = () => {
   const handleSave = () => {
     const updatedData = { ...companyData, ...formData, isVerified };
     setCompanyData(updatedData);
-    localStorage.setItem("companyData", JSON.stringify(updatedData));
+    localStorage.setItem('companyData', JSON.stringify(updatedData));
     setShowModal(false);
   };
 
@@ -62,10 +62,10 @@ const CompanyProfile = () => {
                 <img
                   src={
                     companyData.coverImage ||
-                    "https://s.alicdn.com/@img/imgextra/i4/O1CN01ustqhi1Tz44lu4arh_!!6000000002452-0-tps-3840-1248.jpg_q60.jpg"
+                    'https://www.ust.com/content/dam/ust/images/people/event-banner-image.jpg'
                   }
                   alt="Cover"
-                  className="w-full h-64 md:h-80 object-cover"
+                  className="w-full object-left-top h-64 md:h-80 object-cover"
                 />
                 <img
                   src={companyData.logo || miniLogo}
@@ -78,13 +78,13 @@ const CompanyProfile = () => {
               <div className="px-6 bg-white shadow-lg rounded-lg p-6">
                 <div className="flex justify-between items-center">
                   <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-                    {companyData.companyName || "Sample Company"}
+                    {companyData.companyName || 'Sample Company'}
                   </h2>
                   <button
                     className={`flex items-center px-4 py-2 text-sm font-semibold rounded-full shadow-sm ${
                       isVerified
-                        ? "bg-green-100 text-green-700 hover:bg-green-200"
-                        : "bg-red-100 text-red-700 hover:bg-red-200"
+                        ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                        : 'bg-red-100 text-red-700 hover:bg-red-200'
                     }`}
                   >
                     {isVerified ? (
@@ -101,25 +101,25 @@ const CompanyProfile = () => {
 
                 <p className="mt-4 text-gray-700 text-lg">
                   {companyData.businessDescription ||
-                    "We are a leading company providing exceptional services in our domain."}
+                    'We are a leading company providing exceptional services in our domain.'}
                 </p>
 
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="flex items-center bg-gray-100 rounded-md p-4 shadow-sm">
                     <strong className="text-gray-800 mr-2">Contact:</strong>
-                    <span>{companyData.contact || "Not provided"}</span>
+                    <span>{companyData.contact || 'Not provided'}</span>
                   </div>
                   <div className="flex items-center bg-gray-100 rounded-md p-4 shadow-sm">
                     <strong className="text-gray-800 mr-2">Country:</strong>
-                    <span>{companyData.country || "Not provided"}</span>
+                    <span>{companyData.country || 'Not provided'}</span>
                   </div>
                   <div className="flex items-center bg-gray-100 rounded-md p-4 shadow-sm">
                     <strong className="text-gray-800 mr-2">Established:</strong>
-                    <span>{companyData.establishedYear || "Not provided"}</span>
+                    <span>{companyData.establishedYear || 'Not provided'}</span>
                   </div>
                   <div className="flex items-center bg-gray-100 rounded-md p-4 shadow-sm">
                     <strong className="text-gray-800 mr-2">Employees:</strong>
-                    <span>{companyData.employees || "Not provided"}</span>
+                    <span>{companyData.employees || 'Not provided'}</span>
                   </div>
                 </div>
 
@@ -146,16 +146,16 @@ const CompanyProfile = () => {
                         PAN Card Number
                       </strong>
                       <p className="text-sm text-gray-700">
-                        {formData.pan || "Not provided"}
+                        {formData.pan || 'Not provided'}
                       </p>
                       <span
                         className={`mt-2 inline-block text-xs font-medium px-3 py-1 rounded-full ${
                           isVerified
-                            ? "bg-green-100 text-green-700"
-                            : "bg-red-100 text-red-700"
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-red-100 text-red-700'
                         }`}
                       >
-                        {isVerified ? "Verified" : "Unverified"}
+                        {isVerified ? 'Verified' : 'Unverified'}
                       </span>
                     </div>
 
@@ -165,16 +165,16 @@ const CompanyProfile = () => {
                         GST Number
                       </strong>
                       <p className="text-sm text-gray-700">
-                        {formData.gst || "Not provided"}
+                        {formData.gst || 'Not provided'}
                       </p>
                       <span
                         className={`mt-2 inline-block text-xs font-medium px-3 py-1 rounded-full ${
                           isVerified
-                            ? "bg-green-100 text-green-700"
-                            : "bg-red-100 text-red-700"
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-red-100 text-red-700'
                         }`}
                       >
-                        {isVerified ? "Verified" : "Unverified"}
+                        {isVerified ? 'Verified' : 'Unverified'}
                       </span>
                     </div>
 
@@ -200,11 +200,11 @@ const CompanyProfile = () => {
                       <span
                         className={`mt-2 inline-block text-xs font-medium px-3 py-1 rounded-full ${
                           isVerified
-                            ? "bg-green-100 text-green-700"
-                            : "bg-red-100 text-red-700"
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-red-100 text-red-700'
                         }`}
                       >
-                        {isVerified ? "Verified" : "Unverified"}
+                        {isVerified ? 'Verified' : 'Unverified'}
                       </span>
                     </div>
                   </div>

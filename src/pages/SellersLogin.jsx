@@ -78,6 +78,8 @@ export default function SellersLogin() {
           userName: '',
           companyType: [],
         });
+        // Trigger auth state change
+        window.dispatchEvent(new Event('authStatusChanged'));
 
         navigate(`/company-dashboard`);
 
