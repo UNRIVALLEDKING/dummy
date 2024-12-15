@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FiMail, FiPhone, FiArrowRight } from 'react-icons/fi';
 import { useNavigate } from 'react-router';
+import localeData from '../constants/localeData';
 
 export default function SellersLogin() {
   const [step, setStep] = useState(1);
@@ -34,7 +35,7 @@ export default function SellersLogin() {
     // Simple OTP generation (6 digits)
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     setGeneratedOTP(otp);
-    console.log('Generated OTP:', otp); // In real app, send via SMS/email
+    console.log('Generated OTP:', otp);
   };
 
   const handleCompanyTypeChange = (type) => {
@@ -137,8 +138,15 @@ export default function SellersLogin() {
                   handleInputChange(e);
                 }}
               >
-                <option value="India">India</option>
-                <option value="Other">Other</option>
+                {localeData.map((item, id) => (
+                  <option
+                    onChange={handleCompanyTypeChange}
+                    key={id}
+                    value={item.name}
+                  >
+                    {item.name}
+                  </option>
+                ))}
               </select>
             </div>
             {isIndian ? (

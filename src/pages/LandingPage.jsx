@@ -119,11 +119,6 @@ export default function LandingPage() {
       <Services />
 
       <VideoShowcase />
-      {/* <ServiceButtons />
-      <Features />
-      <Membership />
-      <Services />
-      <VideoShowcase /> */}
     </main>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // import { mainLogo } from '../assets';
 import LocaleSelect from './locale/LocaleSelect';
 import { useNavigate } from 'react-router';
@@ -8,62 +8,12 @@ import { Ship } from 'lucide-react';
 export default function Navbar() {
   const [selectedSearch, setSelectedSearch] = useState('Products');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [profileRedirect, setProfileRedirect] = useState('');
 
   const navigate = useNavigate();
-  const openModal = () => {
-    document.getElementById('login_modal').showModal();
-  };
 
   const handleSearch = () => {
     navigate(`/products?query=${searchQuery}`);
   };
-
-  // useEffect(() => {
-  //   // Check localStorage for userData or companyData
-  //   const userData = localStorage.getItem('userData');
-  //   const companyData = localStorage.getItem('companyData');
-  //   if (userData) {
-  //     setIsLoggedIn(true);
-  //     setProfileRedirect('/profile');
-  //   } else if (companyData) {
-  //     setIsLoggedIn(true);
-  //     setProfileRedirect('/company-dashboard');
-  //   } else {
-  //     setIsLoggedIn(false);
-  //   }
-  // }, []);
-
-  useEffect(() => {
-    // Initial check
-    const checkAuthStatus = () => {
-      const userData = localStorage.getItem('userData');
-      const companyData = localStorage.getItem('companyData');
-
-      if (userData) {
-        setIsLoggedIn(true);
-        setProfileRedirect('/profile');
-      } else if (companyData) {
-        setIsLoggedIn(true);
-        setProfileRedirect('/company-dashboard');
-      } else {
-        setIsLoggedIn(false);
-        setProfileRedirect('');
-      }
-    };
-
-    // Check on initial load
-    checkAuthStatus();
-
-    // Listen for auth status changes
-    window.addEventListener('authStatusChanged', checkAuthStatus);
-
-    // Cleanup listener
-    return () => {
-      window.removeEventListener('authStatusChanged', checkAuthStatus);
-    };
-  }, []);
 
   return (
     <header className="bg-background sticky top-0 z-50 shadow-sm">
@@ -112,34 +62,16 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <LocaleSelect />
             <div className="hidden sm:flex space-x-4">
-              {isLoggedIn ? (
-                <a
-                  className="rounded-full font-medium text-white shadow"
-                  href={profileRedirect}
-                >
-                  <img
-                    src={getRandomProfileImage()}
-                    alt="profile"
-                    className="w-14 rounded-full"
-                  />
-                </a>
-              ) : (
-                <>
-                  <a
-                    className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-white shadow"
-                    href="#"
-                    onClick={openModal}
-                  >
-                    Login
-                  </a>
-                  <a
-                    className="border rounded-full border-primary text-secondary px-5 py-2.5 text-sm font-medium"
-                    href="/sellers-login"
-                  >
-                    Become Seller
-                  </a>
-                </>
-              )}
+              <a
+                className="rounded-full font-medium text-white shadow"
+                href="/company-dashboard"
+              >
+                <img
+                  src={getRandomProfileImage()}
+                  alt="profile"
+                  className="w-14 rounded-full"
+                />
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
