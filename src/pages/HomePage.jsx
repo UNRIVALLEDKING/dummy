@@ -198,7 +198,7 @@ export default function HomePage() {
             {/* Right Section */}
             <div className="col-span-12 sm:col-span-3 space-y-6">
               <div className="bg-yellow-50 rounded-lg shadow-md p-6 text-secondary">
-                <h3 className="font-bold text-lg mb-5">
+                <h3 className="font-bold text-lg mb-5s">
                   Looking for a Product?
                 </h3>
                 <a

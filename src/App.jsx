@@ -19,6 +19,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import Features from './pages/Features';
 import Services from './pages/Services';
 import Enquiries from './pages/Enquiries';
+import Analytics from './pages/company/Analytics';
 
 function App() {
   return (
@@ -53,6 +54,10 @@ function App() {
                 <Route
                   path="/company-dashboard/orders"
                   element={<CompanyOrders />}
+                />
+                <Route
+                  path="/company-dashboard/analytics"
+                  element={<Analytics />}
                 />
                 <Route
                   path="/company/public-profile"
