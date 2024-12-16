@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FiMail, FiPhone, FiArrowRight } from 'react-icons/fi';
 import { useNavigate } from 'react-router';
-import localeData from '../constants/localeData';
+import Flag from 'react-world-flags';
+import countryList from 'react-select-country-list';
+import Select from 'react-select';
 
 export default function SellersLogin() {
   const [step, setStep] = useState(1);
@@ -25,6 +27,8 @@ export default function SellersLogin() {
     'Exporter',
     'Importer',
     'Dropshipper',
+    'Homemade Creators',
+    'IRDS (Independent Representative Direct Sales)',
   ];
 
   const saveToLocalStorage = (data) => {
@@ -39,6 +43,7 @@ export default function SellersLogin() {
   };
 
   const handleCompanyTypeChange = (type) => {
+    console.log('type', type);
     const updatedTypes = formData.companyType.includes(type)
       ? formData.companyType.filter((t) => t !== type)
       : [...formData.companyType, type];
@@ -101,6 +106,10 @@ export default function SellersLogin() {
     saveToLocalStorage(updatedData);
   };
 
+  const handleCountryChange = (selectedOption) => {
+    setFormData({ ...formData, country: selectedOption.name });
+    setIsIndian(selectedOption.name === 'India');
+  };
   useEffect(() => {
     // Load existing data from localStorage
     const savedData = localStorage.getItem('sellerRegistrationData');
@@ -108,7 +117,22 @@ export default function SellersLogin() {
       setFormData(JSON.parse(savedData));
     }
   }, []);
-
+  const countries = countryList()
+    .getData()
+    .map((country) => ({
+      value: country.label,
+      label: (
+        <div className="flex items-center">
+          <Flag
+            code={country.value}
+            className="mr-2 w-6 h-4 rounded-sm object-cover border"
+          />
+          {country.label}
+        </div>
+      ),
+      name: country.label,
+      code: country.value,
+    }));
   return (
     <div className="min-h-screen bg-background p-4 flex items-center justify-center">
       <div className="bg-background border border-primary rounded-lg shadow-lg p-8 w-full max-w-md">
@@ -123,31 +147,24 @@ export default function SellersLogin() {
         {step === 1 && (
           <div>
             <h2 className="text-xl font-bold text-primary mb-4">
-              Company Login
+              Become Seller
             </h2>
-            <div className="mb-4">
-              <label className="block bg-inherit text-gray-600 font-medium mb-2">
-                Country
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-secondary font-semibold">
+                  Select Country
+                </span>
               </label>
-              <select
-                name="country"
-                value={formData.country}
-                className="select bg-inherit text-secondary select-bordered w-full"
-                onChange={(e) => {
-                  setIsIndian(e.target.value === 'India');
-                  handleInputChange(e);
-                }}
-              >
-                {localeData.map((item, id) => (
-                  <option
-                    onChange={handleCompanyTypeChange}
-                    key={id}
-                    value={item.name}
-                  >
-                    {item.name}
-                  </option>
-                ))}
-              </select>
+              <Select
+                options={countries}
+                onChange={handleCountryChange}
+                defaultValue={countries.find(
+                  (country) => country.value === 'India'
+                )}
+                placeholder="Select your country"
+                className="basic-multi-select"
+                classNamePrefix="select"
+              />
             </div>
             {isIndian ? (
               <div className="mb-4">

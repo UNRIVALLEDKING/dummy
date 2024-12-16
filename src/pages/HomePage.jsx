@@ -198,10 +198,15 @@ export default function HomePage() {
             {/* Right Section */}
             <div className="col-span-12 sm:col-span-3 space-y-6">
               <div className="bg-yellow-50 rounded-lg shadow-md p-6 text-secondary">
-                <h3 className="font-bold text-lg">Looking for a Product?</h3>
-                <button className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-secondary transition">
+                <h3 className="font-bold text-lg mb-5">
+                  Looking for a Product?
+                </h3>
+                <a
+                  href="/enquires"
+                  className="bg-primary text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-secondary transition"
+                >
                   Post Buy Requirement
-                </button>
+                </a>
               </div>
 
               <div className="bg-red-50 rounded-lg shadow-md p-6 text-secondary">

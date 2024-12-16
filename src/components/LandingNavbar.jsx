@@ -1,23 +1,20 @@
-import React from "react";
+import React from 'react';
 import {
   //  Ship,
   Menu,
   X,
-} from "lucide-react";
-import { mainLogo } from "../assets";
+} from 'lucide-react';
+import { mainLogo } from '../assets';
 
 export default function LandingNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const navItems = [
-    { label: "Home", path: "/" },
-    { label: "Features", path: "/features" },
-    { label: "Services", path: "/services" },
-    { label: "Company", path: "/company" },
-    { label: "Support", path: "/support" },
+    { label: 'Features', path: '/features' },
+    { label: 'Services', path: '/services' },
   ];
   const openModal = () => {
-    document.getElementById("login_modal").showModal();
+    document.getElementById('login_modal').showModal();
   };
 
   return (

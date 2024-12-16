@@ -3,7 +3,7 @@ import { useState } from 'react';
 import LocaleSelect from './locale/LocaleSelect';
 import { useNavigate } from 'react-router';
 import { getRandomProfileImage } from '../constants/functions';
-import { Ship } from 'lucide-react';
+import { mainLogo } from '../assets';
 
 export default function Navbar() {
   const [selectedSearch, setSelectedSearch] = useState('Products');
@@ -21,12 +21,8 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center">
-            <a className="flex text-teal-600" href="/">
-              {/* <img src={mainLogo} className="w-52" alt="Main Logo" /> */}
-              <Ship className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-secondary">
-                List2Ship
-              </span>
+            <a className="flex text-teal-600" href="/home">
+              <img src={mainLogo} className="w-52" alt="Main Logo" />
             </a>
           </div>
 
@@ -62,16 +58,27 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <LocaleSelect />
             <div className="hidden sm:flex space-x-4">
-              <a
-                className="rounded-full font-medium text-white shadow"
-                href="/company-dashboard"
-              >
-                <img
-                  src={getRandomProfileImage()}
-                  alt="profile"
-                  className="w-14 rounded-full"
-                />
-              </a>
+              {/* Profile Icon with Dropdown */}
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="cursor-pointer">
+                  <img
+                    src={getRandomProfileImage()}
+                    alt="profile"
+                    className="w-14 rounded-full"
+                  />
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <a href="/profile">My Profile</a>
+                  </li>
+                  <li>
+                    <a href="/company-dashboard">Company Dashboard</a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}

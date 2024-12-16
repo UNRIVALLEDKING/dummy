@@ -1,39 +1,46 @@
-import { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from 'react';
+import CompanySidebar from '../components/CompanySidebar';
+import ContactInfo from '../components/user/ContactInfo';
+import CompanyInfo from '../components/user/CompanyInfo';
+import KycDocuments from '../components/user/KycDocuments';
+import SocialLinks from '../components/user/SocialLinks';
 
 export default function UserProfilePage() {
   const [userData, setUserData] = useState(null);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    companyName: "",
-    companySize: "",
+    companyName: '',
+    companySize: '',
     goals: [],
     challenges: [],
-    customGoal: "",
-    customChallenge: "",
+    customGoal: '',
+    customChallenge: '',
   });
   const [defaultGoals, setDefaultGoals] = useState([
-    { id: 0, value: "Expand business globally" },
-    { id: 1, value: "Find reliable suppliers and buyers" },
-    { id: 2, value: "Increase sales and reduce costs" },
-    { id: 3, value: "Improve product visibility" },
+    { id: 0, value: 'Expand business globally' },
+    { id: 1, value: 'Find reliable suppliers and buyers' },
+    { id: 2, value: 'Increase sales and reduce costs' },
+    { id: 3, value: 'Improve product visibility' },
   ]);
   const [defaultChallenges, setDefaultChallenges] = useState([
-    { id: 0, value: "Difficulty in finding trustworthy business partners" },
-    { id: 1, value: "Limited knowledge of international markets" },
-    { id: 2, value: "High costs of traditional networking" },
+    { id: 0, value: 'Difficulty in finding trustworthy business partners' },
+    { id: 1, value: 'Limited knowledge of international markets' },
+    { id: 2, value: 'High costs of traditional networking' },
   ]);
 
   useEffect(() => {
     // Fetch user data from localStorage
-    const storedData = JSON.parse(localStorage.getItem("userData"));
-    console.log("storedData----", storedData);
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    console.log('storedData----', storedData);
     if (storedData) {
       setUserData(storedData);
       setFormData({ ...formData, ...storedData });
     }
   }, []);
 
-  console.log("userData---->", userData);
+  console.log('userData---->', userData);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -72,7 +79,7 @@ export default function UserProfilePage() {
         ...prev.goals,
         { id: defaultGoals.length, value: formData.customGoal },
       ],
-      customGoal: "",
+      customGoal: '',
     }));
   };
 
@@ -90,22 +97,22 @@ export default function UserProfilePage() {
         ...prev.challenges,
         { id: defaultChallenges.length, value: formData.customChallenge },
       ],
-      customChallenge: "",
+      customChallenge: '',
     }));
   };
 
-  console.log("formData---->", formData);
+  console.log('formData---->', formData);
 
   const handleSaveDetails = () => {
     try {
       // Save the updated details to localStorage
       const updatedUserData = { ...userData, ...formData };
-      console.log("updatedUserData---->", updatedUserData);
-      localStorage.setItem("userData", JSON.stringify(updatedUserData));
+      console.log('updatedUserData---->', updatedUserData);
+      localStorage.setItem('userData', JSON.stringify(updatedUserData));
       setUserData(updatedUserData);
       setIsModalOpen(false); // Close the modal after saving
     } catch (err) {
-      console.log("err in saving details---", err);
+      console.log('err in saving details---', err);
     }
   };
 
@@ -120,270 +127,42 @@ export default function UserProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-blue-50 flex flex-col items-center py-10">
-      {/* Profile Header */}
-      <div className="w-11/12 max-w-4xl bg-white rounded-lg shadow-lg p-8">
-        <div className="flex items-center justify-between border-b pb-6 mb-8">
-          <h1 className="text-3xl font-bold text-primary">
-            Welcome, {userData.firstName}!
-          </h1>
-          <button
-            onClick={() => {
-              localStorage.clear();
-              window.location.reload();
-            }}
-            className="btn bg-red-500 text-white font-medium px-6 py-2 rounded-lg hover:bg-red-600"
-          >
-            Log Out
-          </button>
-        </div>
+    <div className="flex min-h-screen bg-gray-50">
+      <CompanySidebar />
+      <main className="ml-64 flex-1 p-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            {/* Header/Banner */}
+            <div className="h-32 bg-gradient-to-r from-[#f37a1f] to-[#e06a10]" />
 
-        {/* Profile Details Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h2 className="text-lg font-semibold text-secondary">
-              Personal Information
-            </h2>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center">
-                <span className="font-semibold text-gray-600 w-32">
-                  First Name:
-                </span>
-                <span className="text-gray-800">{userData.firstName}</span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-semibold text-gray-600 w-32">
-                  Last Name:
-                </span>
-                <span className="text-gray-800">{userData.lastName}</span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-semibold text-gray-600 w-32">
-                  Country:
-                </span>
-                <span className="text-gray-800">{userData.country}</span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-semibold text-gray-600 w-32">
-                  {userData.country === "India" ? "Mobile Number" : "Email"}:
-                </span>
-                <span className="text-gray-800">{userData.contact}</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-secondary">
-              Company Information
-            </h2>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center">
-                <span className="font-semibold text-gray-600 w-32">
-                  Company Name:
-                </span>
-                <span className="text-gray-800">
-                  {userData.companyName || "Not Provided"}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-semibold text-gray-600 w-32">
-                  Company Size:
-                </span>
-                <span className="text-gray-800">
-                  {userData.companySize || "Not Provided"}
-                </span>
-              </div>
-              <div className=" flex flex-col   ">
-                <span className="font-semibold text-gray-600 w-32">Goals:</span>
-                <div className="  ">
-                  {userData.goals?.map((goal) => (
-                    <div key={goal.id} className=" pl-2  text-gray-800">
-                      {goal.value}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="flex-col items-start ">
-                <span className="font-semibold text-gray-600 w-32">
-                  Challenges:
-                </span>
-                <div>
-                  {userData.challenges?.map((challenge) => (
-                    <div key={challenge.id} className=" pl-2  text-gray-800">
-                      {challenge.value}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Add Details Button */}
-        <div className="text-center mt-6">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="btn bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary"
-          >
-            Add Company Details
-          </button>
-        </div>
-      </div>
-
-      {/* Profile Avatar Section */}
-      <div className="w-11/12 max-w-4xl bg-white rounded-lg shadow-lg mt-6 p-8 flex flex-col items-center">
-        <img
-          src={`https://avatars.dicebear.com/api/initials/${userData.firstName}-${userData.lastName}.svg`}
-          alt="User Avatar"
-          className="w-32 h-32 rounded-full shadow-lg border-4 border-primary"
-        />
-        <h2 className="text-xl font-semibold text-primary mt-4">
-          {userData.firstName} {userData.lastName}
-        </h2>
-        <p className="text-gray-500">{userData.country}</p>
-      </div>
-
-      {/* Modal for Adding Details */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg w-11/12 max-w-lg">
-            <h3 className="text-xl font-bold text-primary mb-4">
-              Add Company Details
-            </h3>
-
-            <div className="space-y-4">
-              {/* Company Name */}
-              <div>
-                <label className="block text-gray-600 font-semibold">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  className="input input-bordered w-full mt-2"
+            {/* Profile Section */}
+            <div className="px-8 py-6 -mt-16">
+              <div className="flex flex-col md:flex-row items-start md:items-end space-y-4 md:space-y-0 md:space-x-6">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80"
+                  alt="Rajesh Kumar"
+                  className="w-32 h-32 rounded-xl border-4 border-white shadow-lg"
                 />
-              </div>
-
-              {/* Company Size */}
-              <div>
-                <label className="block text-gray-600 font-semibold">
-                  Company Size
-                </label>
-                <input
-                  type="text"
-                  name="companySize"
-                  value={formData.companySize}
-                  onChange={handleInputChange}
-                  className="input input-bordered w-full mt-2"
-                />
-              </div>
-
-              {/* Goals */}
-              <div>
-                <label className="block text-gray-600 font-semibold">
-                  Goals
-                </label>
-                <div className="mt-2 space-y-2">
-                  {defaultGoals.map((goal) => (
-                    <div key={goal.id} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        value={goal.id} // Ensure value is set to the goal id
-                        checked={formData.goals?.some((g) => g.id === goal.id)} // Check if the goal's id is in the selected goals array
-                        onChange={(e) =>
-                          handleCheckboxChange(e, "goals", defaultGoals)
-                        }
-                        className="checkbox"
-                      />
-                      <span className="ml-2">{goal.value}</span>
-                    </div>
-                  ))}
-                  <div className="flex items-center mt-2">
-                    <input
-                      type="text"
-                      name="customGoal"
-                      value={formData.customGoal}
-                      onChange={handleInputChange}
-                      className="input input-bordered w-4/5"
-                      placeholder="Add Custom Goal"
-                    />
-                    <button
-                      type="button"
-                      onClick={handleAddCustomGoal}
-                      className="btn btn-outline ml-2"
-                    >
-                      Add
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Challenges */}
-              <div>
-                <label className="block text-gray-600 font-semibold">
-                  Challenges
-                </label>
-                <div className="mt-2 space-y-2">
-                  {defaultChallenges.map((challenge) => (
-                    <div key={challenge.id} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        value={challenge.id}
-                        checked={formData.challenges?.some(
-                          (c) => c.id === challenge.id
-                        )}
-                        onChange={(e) =>
-                          handleCheckboxChange(
-                            e,
-                            "challenges",
-                            defaultChallenges
-                          )
-                        }
-                        className="checkbox"
-                      />
-                      <span className="ml-2">{challenge.value}</span>
-                    </div>
-                  ))}
-                  <div className="flex items-center mt-2">
-                    <input
-                      type="text"
-                      name="customChallenge"
-                      value={formData.customChallenge}
-                      onChange={handleInputChange}
-                      className="input input-bordered w-4/5"
-                      placeholder="Add Custom Challenge"
-                    />
-                    <button
-                      type="button"
-                      onClick={handleAddCustomChallenge}
-                      className="btn btn-outline ml-2"
-                    >
-                      Add
-                    </button>
-                  </div>
+                <div className="flex-1">
+                  <h1 className="text-3xl font-bold text-[#393939]">
+                    Rajesh Kumar
+                  </h1>
+                  <p className="text-[#393939]/60">
+                    Owner - Electronic Components Manufacturing
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-between mt-6">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="btn btn-ghost text-gray-500"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSaveDetails}
-                className="btn bg-primary text-white"
-              >
-                Save Details
-              </button>
+            <div className="p-8 space-y-8">
+              <ContactInfo />
+              <CompanyInfo />
+              <KycDocuments />
+              <SocialLinks />
             </div>
           </div>
         </div>
-      )}
+      </main>
     </div>
   );
 }

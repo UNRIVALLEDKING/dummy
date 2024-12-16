@@ -15,6 +15,11 @@ import {
   TrustedClients,
   LegalAssistance,
   BuyingSelling,
+  Communication,
+  Analytics,
+  BestDeals,
+  NewsAlerts,
+  Events,
 } from './ServiceContent';
 
 const services = [
@@ -25,11 +30,11 @@ const services = [
     content: LegalAssistance,
   },
   { icon: ShoppingCart, title: 'Buying & Selling', content: BuyingSelling },
-  { icon: MessageCircle, title: 'Communication', content: null },
-  { icon: BarChart, title: 'Analytics', content: null },
-  { icon: Briefcase, title: 'Best Deals', content: null },
-  { icon: Bell, title: 'News & Alerts', content: null },
-  { icon: Calendar, title: 'Events', content: null },
+  { icon: MessageCircle, title: 'Communication', content: Communication },
+  { icon: BarChart, title: 'Analytics', content: Analytics },
+  { icon: Briefcase, title: 'Best Deals', content: BestDeals },
+  { icon: Bell, title: 'News & Alerts', content: NewsAlerts },
+  { icon: Calendar, title: 'Events', content: Events },
 ];
 
 export default function ServiceButtons() {

@@ -15,7 +15,7 @@ const plans = [
   },
   {
     title: 'Premium',
-    price: '$49',
+    price: 'Rs 499',
     features: [
       { text: 'Unlimited product listings', included: true },
       { text: 'Advanced search features', included: true },
@@ -28,7 +28,7 @@ const plans = [
   },
   {
     title: 'Enterprise',
-    price: '$199',
+    price: 'Rs 999',
     features: [
       { text: 'Custom solutions', included: true },
       { text: 'Dedicated account manager', included: true },

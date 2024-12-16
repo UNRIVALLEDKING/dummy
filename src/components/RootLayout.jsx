@@ -7,9 +7,11 @@ import { useLocation } from 'react-router';
 const Layout = ({ children }) => {
   const location = useLocation();
 
-  // Check if the current path is the root index (`LandingPage`)
-  const isLandingPage =
-    location.pathname === '/' || location.pathname === '/sellers-login';
+  // Define an array of landing page paths
+  const landingPagePaths = ['/', '/sellers-login', '/features', '/services'];
+
+  // Check if the current path is in the array
+  const isLandingPage = landingPagePaths.includes(location.pathname);
   console.log('isLandingPage', isLandingPage);
   return (
     <>
