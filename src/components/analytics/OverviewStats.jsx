@@ -1,35 +1,34 @@
-import React from 'react';
-import { TrendingUp, Users, Eye, MessageSquare } from 'lucide-react';
+import { Users, Eye, MessageSquare, HandCoins } from 'lucide-react';
 
 const stats = [
   {
     label: 'Total Revenue',
     value: '$124,592',
-    change: '+12.5%',
-    icon: TrendingUp,
-    trend: 'up'
+    change: '-12.5%',
+    icon: HandCoins,
+    trend: 'down',
   },
   {
     label: 'Total Leads',
     value: '2,847',
     change: '+18.2%',
     icon: Users,
-    trend: 'up'
+    trend: 'up',
   },
   {
     label: 'Product Views',
     value: '187,492',
-    change: '+25.8%',
+    change: '-25.8%',
     icon: Eye,
-    trend: 'up'
+    trend: 'down',
   },
   {
     label: 'Enquiries',
     value: '1,234',
     change: '+15.3%',
     icon: MessageSquare,
-    trend: 'up'
-  }
+    trend: 'up',
+  },
 ];
 
 export default function OverviewStats() {
@@ -39,9 +38,11 @@ export default function OverviewStats() {
         <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <stat.icon className="w-8 h-8 text-[#f37a1f]" />
-            <span className={`text-sm font-medium ${
-              stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
-            }`}>
+            <span
+              className={`text-sm font-medium ${
+                stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
+              }`}
+            >
               {stat.change}
             </span>
           </div>

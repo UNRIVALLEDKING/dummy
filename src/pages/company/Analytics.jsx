@@ -11,7 +11,10 @@ export default function Analytics() {
       <main className="ml-64 flex-1 p-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold text-[#393939] mb-8">
-            Analytics Dashboard
+            Analytics Dashboard{' '}
+            <span className="text-base text-gray-700 font-normal">
+              Past 7 days
+            </span>
           </h1>
           <div className="space-y-8">
             <OverviewStats />

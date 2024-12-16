@@ -46,6 +46,8 @@ function App() {
                 <Route path="/product/:id" element={<ProductDetailPage />} />
                 <Route path="/chat" element={<ChatPage />} />
                 <Route path="/post-requirement" element={<PostRequirement />} />
+
+                {/* Company Dashboard */}
                 <Route path="/company-dashboard" element={<CompanyProfile />} />
                 <Route
                   path="/company-dashboard/products"
