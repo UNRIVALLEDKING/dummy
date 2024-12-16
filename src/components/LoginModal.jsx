@@ -1,4 +1,9 @@
 export default function LoginModal() {
+  const openModal = () => {
+    document.getElementById("login_modal").close();
+    document.getElementById("signup_modal").showModal();
+  };
+
   return (
     <dialog id="login_modal" className="modal">
       <div className="modal-box bg-white border-2 border-primary rounded-lg shadow-lg">
@@ -65,8 +70,8 @@ export default function LoginModal() {
           <p className="text-sm text-gray-500">
             Don’t have an account?{" "}
             <a
-              href="/register"
-              className="text-primary font-semibold hover:underline"
+              onClick={openModal}
+              className="text-primary cursor-pointer font-semibold hover:underline"
             >
               Sign Up
             </a>
