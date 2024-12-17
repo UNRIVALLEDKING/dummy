@@ -55,7 +55,7 @@ export default function LandingPage() {
 
   return (
     <main>
-      <div className="relative pb-20 pt-5">
+      <div className="relative pb-20 pt-10">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 space-y-8">
