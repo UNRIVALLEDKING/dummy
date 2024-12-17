@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useState } from "react";
 // import { mainLogo } from '../assets';
-import LocaleSelect from './locale/LocaleSelect';
-import { useNavigate } from 'react-router';
-import { getRandomProfileImage } from '../constants/functions';
-import { mainLogo } from '../assets';
+import LocaleSelect from "./locale/LocaleSelect";
+import { useNavigate } from "react-router";
+import { getRandomProfileImage } from "../constants/functions";
+import { mainLogo } from "../assets";
+import CategoryMenu from "./megamenu/CategoryMenu";
+import ProductMenu from "./megamenu/ProductMenu";
+import MoreMenu from "./megamenu/MoreMenu";
+import ServicesMenu from "./megamenu/ServicesMenu";
 
 export default function Navbar() {
-  const [selectedSearch, setSelectedSearch] = useState('Products');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedSearch, setSelectedSearch] = useState("Products");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
 
@@ -99,6 +103,57 @@ export default function Navbar() {
                   />
                 </svg>
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mega Menu Section */}
+      <div className="  bg-white border-t border-secondary">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            {/* Bottom Nav with Mega Menus */}
+            <div className="flex space-x-6">
+              <div className="relative group">
+                <a
+                  href="#"
+                  className="text-sm text-secondary hover:text-primary"
+                >
+                  Categories
+                </a>
+                <CategoryMenu />
+              </div>
+
+              <div className="relative group">
+                <a
+                  href="#"
+                  className="text-sm text-secondary hover:text-primary"
+                >
+                  Products
+                </a>
+                <ProductMenu />
+              </div>
+
+              <div className="relative group">
+                <a
+                  href="#"
+                  className="text-sm text-secondary hover:text-primary"
+                >
+                  More
+                </a>
+                <MoreMenu />
+              </div>
+
+              <div className="dropdown dropdown-hover  ">
+                <a
+                  href="#"
+                  tabIndex={0}
+                  className="text-sm text-secondary hover:text-primary"
+                >
+                  Services
+                </a>
+                <ServicesMenu />
+              </div>
             </div>
           </div>
         </div>

@@ -193,7 +193,7 @@ export default function ProductPage() {
                 </p>
                 <p className="text-fourth text-sm mt-2">{product.seller}</p>
                 <button className="mt-4 flex items-center justify-center bg-primary text-white py-2 px-4 rounded-md font-medium hover:bg-secondary hover:text-white transition">
-                  Add to Cart
+                  See Details
                 </button>
               </div>
             </div>

@@ -1,19 +1,20 @@
-import { useState } from 'react';
-import Select from 'react-select';
-import Flag from 'react-world-flags';
-import countryList from 'react-select-country-list';
-import { useNavigate } from 'react-router';
+import { useState } from "react";
+import Select from "react-select";
+import Flag from "react-world-flags";
+import countryList from "react-select-country-list";
+import { useNavigate } from "react-router";
 
 export default function SignupModal() {
-  const [useMobile, setUseMobile] = useState(false);
+  const [useMobile, setUseMobile] = useState(true);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    contact: '',
-    password: '',
-    country: '',
+    firstName: "",
+    lastName: "",
+    mobileNumber: "",
+    password: "",
+    country: "India",
   });
 
+  console.log("formDa", formData);
   const navigate = useNavigate();
 
   const countries = countryList()
@@ -35,7 +36,7 @@ export default function SignupModal() {
 
   const handleCountryChange = (selectedOption) => {
     setFormData({ ...formData, country: selectedOption.name });
-    setUseMobile(selectedOption.name === 'India');
+    setUseMobile(selectedOption.name === "India");
   };
 
   const handleInputChange = (e) => {
@@ -47,16 +48,16 @@ export default function SignupModal() {
     e.preventDefault();
 
     // Save user data in localStorage
-    localStorage.setItem('userData', JSON.stringify(formData));
-    document.getElementById('signup_modal').close();
+    localStorage.setItem("userData", JSON.stringify(formData));
+    document.getElementById("signup_modal").close();
 
     // Redirect to profile page
-    navigate('/profile');
+    navigate("/profile");
   };
 
   function showLoginModal() {
-    document.getElementById('signup_modal').close();
-    document.getElementById('login_modal').showModal();
+    document.getElementById("signup_modal").close();
+    document.getElementById("login_modal").showModal();
   }
 
   return (
@@ -93,7 +94,7 @@ export default function SignupModal() {
               className="basic-multi-select"
               classNamePrefix="select"
               defaultValue={countries.find(
-                (country) => country.value === 'India'
+                (country) => country.value === "India"
               )}
             />
           </div>
@@ -102,16 +103,16 @@ export default function SignupModal() {
           <div className="form-control">
             <label className="label">
               <span className="label-text text-secondary font-semibold">
-                {useMobile ? 'Mobile Number' : 'Email'}
+                {useMobile ? "Mobile Number" : "Email"}
               </span>
             </label>
             <input
-              type={useMobile ? 'tel' : 'email'}
-              name="contact"
+              type={useMobile ? "tel" : "email"}
+              name="mobileNumber"
               placeholder={
-                useMobile ? 'Enter your mobile number' : 'Enter your email'
+                useMobile ? "Enter your mobile number" : "Enter your email"
               }
-              value={formData.contact}
+              value={formData.mobileNumber}
               onChange={handleInputChange}
               className="input input-bordered bg-background w-full border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none rounded-md"
               required
@@ -182,7 +183,7 @@ export default function SignupModal() {
                 required
               />
               <span className="text-sm text-gray-700">
-                I agree to the{' '}
+                I agree to the{" "}
                 <a
                   href="/terms"
                   className="text-primary font-semibold hover:underline"
@@ -207,7 +208,7 @@ export default function SignupModal() {
         {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-sm text-gray-500">
-            Already have an account?{' '}
+            Already have an account?{" "}
             <a
               onClick={showLoginModal}
               className="text-primary cursor-pointer font-semibold hover:underline"

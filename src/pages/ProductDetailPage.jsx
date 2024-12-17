@@ -2,18 +2,27 @@
 import { useEffect, useState } from "react";
 import productData from "../data/products.json";
 import { useParams, useNavigate } from "react-router";
+import allCompaniesData from "../data/company.json";
 
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [company, setCompany] = useState(null);
 
   const { id } = useParams();
   const navigate = useNavigate();
+
+  console.log("com", company);
 
   useEffect(() => {
     const data = productData.find((product) => product.id === parseInt(id));
     if (data) {
       setProductDetails(data);
+
+      const companyData = allCompaniesData.filter(
+        (item) => item.id === data?.seller_id
+      );
+      setCompany(companyData[0]);
 
       const relatedData = productData.filter(
         (product) =>
@@ -42,10 +51,10 @@ function ProductDetailPage() {
           {productDetails.title}
         </h1>
         <p
-          onClick={() => navigate("/company/public-profile")}
+          onClick={() => navigate(`/company/${company?.id}/public-profile`)}
           className=" link mb-0 text-primary font-semibold mt-1  "
         >
-          Tech Innovators Inc.
+          {company?.name}
         </p>
       </div>
 
@@ -91,7 +100,7 @@ function ProductDetailPage() {
           </div>
           <div className="flex gap-4 mb-6">
             <button className="bg-primary text-white py-3 px-6 rounded-lg shadow hover:bg-primary-dark transition">
-              Add to Cart
+              Send Inquiry
             </button>
             <button
               onClick={() => navigate("/chat")}

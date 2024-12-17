@@ -1,46 +1,46 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
-import CompanySidebar from '../components/CompanySidebar';
-import ContactInfo from '../components/user/ContactInfo';
-import CompanyInfo from '../components/user/CompanyInfo';
-import KycDocuments from '../components/user/KycDocuments';
-import SocialLinks from '../components/user/SocialLinks';
+import { useEffect, useState } from "react";
+import CompanySidebar from "../components/CompanySidebar";
+import ContactInfo from "../components/user/ContactInfo";
+import CompanyInfo from "../components/user/CompanyInfo";
+import KycDocuments from "../components/user/KycDocuments";
+import SocialLinks from "../components/user/SocialLinks";
 
 export default function UserProfilePage() {
   const [userData, setUserData] = useState(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    companyName: '',
-    companySize: '',
+    companyName: "",
+    companySize: "",
     goals: [],
     challenges: [],
-    customGoal: '',
-    customChallenge: '',
+    customGoal: "",
+    customChallenge: "",
   });
   const [defaultGoals, setDefaultGoals] = useState([
-    { id: 0, value: 'Expand business globally' },
-    { id: 1, value: 'Find reliable suppliers and buyers' },
-    { id: 2, value: 'Increase sales and reduce costs' },
-    { id: 3, value: 'Improve product visibility' },
+    { id: 0, value: "Expand business globally" },
+    { id: 1, value: "Find reliable suppliers and buyers" },
+    { id: 2, value: "Increase sales and reduce costs" },
+    { id: 3, value: "Improve product visibility" },
   ]);
   const [defaultChallenges, setDefaultChallenges] = useState([
-    { id: 0, value: 'Difficulty in finding trustworthy business partners' },
-    { id: 1, value: 'Limited knowledge of international markets' },
-    { id: 2, value: 'High costs of traditional networking' },
+    { id: 0, value: "Difficulty in finding trustworthy business partners" },
+    { id: 1, value: "Limited knowledge of international markets" },
+    { id: 2, value: "High costs of traditional networking" },
   ]);
 
   useEffect(() => {
     // Fetch user data from localStorage
-    const storedData = JSON.parse(localStorage.getItem('userData'));
-    console.log('storedData----', storedData);
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+    console.log("storedData----", storedData);
     if (storedData) {
       setUserData(storedData);
       setFormData({ ...formData, ...storedData });
     }
   }, []);
 
-  console.log('userData---->', userData);
+  console.log("userData---->", userData);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -79,7 +79,7 @@ export default function UserProfilePage() {
         ...prev.goals,
         { id: defaultGoals.length, value: formData.customGoal },
       ],
-      customGoal: '',
+      customGoal: "",
     }));
   };
 
@@ -97,22 +97,22 @@ export default function UserProfilePage() {
         ...prev.challenges,
         { id: defaultChallenges.length, value: formData.customChallenge },
       ],
-      customChallenge: '',
+      customChallenge: "",
     }));
   };
 
-  console.log('formData---->', formData);
+  console.log("formData---->", formData);
 
   const handleSaveDetails = () => {
     try {
       // Save the updated details to localStorage
       const updatedUserData = { ...userData, ...formData };
-      console.log('updatedUserData---->', updatedUserData);
-      localStorage.setItem('userData', JSON.stringify(updatedUserData));
+      console.log("updatedUserData---->", updatedUserData);
+      localStorage.setItem("userData", JSON.stringify(updatedUserData));
       setUserData(updatedUserData);
       setIsModalOpen(false); // Close the modal after saving
     } catch (err) {
-      console.log('err in saving details---', err);
+      console.log("err in saving details---", err);
     }
   };
 
@@ -145,10 +145,10 @@ export default function UserProfilePage() {
                 />
                 <div className="flex-1">
                   <h1 className="text-3xl font-bold text-[#393939]">
-                    Rajesh Kumar
+                    {userData.firstName} {userData.lastName}
                   </h1>
                   <p className="text-[#393939]/60">
-                    Owner - Electronic Components Manufacturing
+                    Owner - {userData.companyInfo?.companyName}
                   </p>
                 </div>
               </div>

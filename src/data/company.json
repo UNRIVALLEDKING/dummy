@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "Aamir Wood Works",
+      "short_title": "Let's Make Your Dream Furniture!",
+      "imageUrl": "https://i.ibb.co/xDgk7GT/51298-e1649156698814.jpg",
+      "description": "Welcome to Aamir Wood Works, where quality is our No. 1 priority. We focus on providing our customers with the best quality furniture. Known for our detailed hand-carvings, we produce luxurious and worthwhile works of art that ensure customer satisfaction. We cater to interior and architectural plans, allowing customers to customize their dream furniture. Our commitment is to bring your ideas into reality with the finest craftsmanship.",
+      "specialities": ["Affordable Luxury", "High Quality & Differentiated", "Youthful & Global", "Authentic & Personified"]
+    },
+    {
+      "id": 2,
+      "name": "Eksa Masala",
+      "short_title": "The Perfect Masala Mixes for Tempting Preparations.",
+      "imageUrl": "https://i.ibb.co/4tfMmvs/7477-F08663003983-FEA09-FAC6-E-1703508410228.png",
+      "description": "Eksa Food Products specializes in trading premium-quality spices in Nerul, Navi Mumbai, Maharashtra. With expert guidance, we deliver high-quality spices appreciated for their purity, supreme aroma, and accurate composition. Our commitment ensures timely delivery and satisfaction for our customers, offering spices that elevate your culinary creations.",
+      "specialities": ["Purity", "Highly Effective", "Supreme Aroma", "Accurate Composition"]
+    },
+    {
+      "id": 3,
+      "name": "Blossomorchid",
+      "short_title": "Crafting High-Quality Organic Products.",
+      "imageUrl": "https://i.ibb.co/wScPkSP/webpng2.png",
+      "description": "Blossom Orchid is dedicated to creating chemical-free, high-quality, and effective natural products that nourish you while being considerate to the planet. Our handcrafted, biodegradable products are rooted in the principles of Ayurveda, developed through meticulous research by our highly qualified R&D team. We aim to make switching to natural products a satisfying and affordable lifestyle choice.",
+      "specialities": ["Organic", "Biodegradable", "Sustainably Handcrafted", "Ayurveda-Based"]
+    },
+    {
+      "id": 4,
+      "name": "Wisepro Sanitary Pads",
+      "short_title": "Comfort and Care for Every Woman.",
+      "imageUrl": "https://i.ibb.co/RNcpwct/list2ship-logo.png",
+      "description": "Wisepro Sanitary Pads prioritize women's hygiene and comfort with high-quality, affordable solutions. Our pads are designed to provide superior protection, ensuring a worry-free experience. With a focus on innovation and customer well-being, Wisepro offers a range of products tailored to every woman’s needs.",
+      "specialities": ["Comfort", "High Absorbency", "Affordable", "Innovative Design"]
+    },
+    {
+      "id": 5,
+      "name": "Majestic Perfume",
+      "short_title": "Shaping Identity Through Fragrance.",
+      "imageUrl": "https://i.ibb.co/tqr4R2N/image.png",
+      "description": "Majestic Perfume plays a crucial role in shaping identities with its exclusive range of fragrances. Established in 2015, we cater to discerning perfume lovers with masstige and prestige variants of international standards. From our first store in Dubai to our expansion into India, we focus on delivering expert perfume knowledge and exceptional customer service. Majestic is one of the few manufacturers blending affordability and luxury with a unique mix of youthful and global fragrances.",
+      "specialities": ["Affordable Luxury", "High Quality & Differentiated", "Youthful & Global", "Authentic & Personified"]
+    }
+  ]
+  

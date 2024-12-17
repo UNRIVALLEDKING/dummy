@@ -8,40 +8,40 @@ import {
   FiCpu,
   FiGlobe,
   FiTrendingUp,
-} from 'react-icons/fi';
-import FeaturedProducts from '../components/home/FeaturedProducts';
-import TrendingCategoriesCarousel from '../components/home/TrendingCategoriesCarousel';
-import { FaUserFriends } from 'react-icons/fa';
+} from "react-icons/fi";
+import FeaturedProducts from "../components/home/FeaturedProducts";
+import TrendingCategoriesCarousel from "../components/home/TrendingCategoriesCarousel";
+import { FaUserFriends } from "react-icons/fa";
 
 export default function HomePage() {
   const categories = [
     {
-      name: 'Health & Beauty',
+      name: "Health & Beauty",
       icon: <FiHeart className="h-6 w-6 text-primary" />,
     },
     {
-      name: 'Apparel & Fashion',
+      name: "Apparel & Fashion",
       icon: <FiShoppingCart className="h-6 w-6 text-tri" />,
     },
-    { name: 'Chemicals', icon: <FiBox className="h-6 w-6 text-secondary" /> },
+    { name: "Chemicals", icon: <FiBox className="h-6 w-6 text-secondary" /> },
     {
-      name: 'Gifts & Crafts',
+      name: "Gifts & Crafts",
       icon: <FiGift className="h-6 w-6 text-forth" />,
     },
     {
-      name: 'Education Supplies',
+      name: "Education Supplies",
       icon: <FiBook className="h-6 w-6 text-primary" />,
     },
     {
-      name: 'Electronics',
+      name: "Electronics",
       icon: <FiPhone className="h-6 w-6 text-secondary" />,
     },
     {
-      name: 'Technology',
+      name: "Technology",
       icon: <FiCpu className="h-6 w-6 text-primary" />,
     },
     {
-      name: 'Global Trade',
+      name: "Global Trade",
       icon: <FiGlobe className="h-6 w-6 text-tri" />,
     },
   ];
@@ -49,30 +49,30 @@ export default function HomePage() {
   const highlights = [
     {
       icon: <FiTrendingUp className="h-8 w-8 text-secondary" />,
-      title: 'Business Growth',
-      description: 'Boost your sales with our advanced tools.',
+      title: "Business Growth",
+      description: "Boost your sales with our advanced tools.",
     },
     {
       icon: <FaUserFriends className="h-8 w-8 text-primary" />,
-      title: 'Your Business Buddy',
-      description: 'Find Best Customers for your products',
+      title: "Your Business Buddy",
+      description: "Find Best Customers for your products",
     },
     {
       icon: <FiGift className="h-8 w-8 text-forth" />,
-      title: 'Exclusive Offers',
-      description: 'Unlock premium benefits with our membership.',
+      title: "Exclusive Offers",
+      description: "Unlock premium benefits with our membership.",
     },
   ];
 
   const SectionTiles = [
     {
-      title: 'Custom Duties & Clearance',
+      title: "Custom Duties & Clearance",
     },
     {
-      title: 'TAX Assistance',
+      title: "TAX Assistance",
     },
-    { title: 'Marketing Assistance' },
-    { title: 'Technical Assitance' },
+    { title: "Marketing Assistance" },
+    { title: "Technical Assitance" },
   ];
 
   return (
@@ -198,7 +198,7 @@ export default function HomePage() {
             {/* Right Section */}
             <div className="col-span-12 sm:col-span-3 space-y-6">
               <div className="bg-yellow-50 rounded-lg shadow-md p-6 text-secondary">
-                <h3 className="font-bold text-lg mb-5s">
+                <h3 className="font-bold text-lg mb-5">
                   Looking for a Product?
                 </h3>
                 <a
@@ -228,7 +228,7 @@ export default function HomePage() {
       {/* Featured Products */}
       <FeaturedProducts />
 
-      <FeaturedProducts title={'Air Cleaning Equipment'} />
+      <FeaturedProducts title={"Air Cleaning Equipment"} />
     </div>
   );
 }

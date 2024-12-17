@@ -1,55 +1,64 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
-import { Building2, Users, Globe, TrendingUp } from 'lucide-react';
+import { Building2, Users, Globe, TrendingUp } from "lucide-react";
+import allCompaniesData from "../../data/company.json";
 
 const companyStats = [
-  { icon: Building2, label: 'Years Active', value: '15+' },
-  { icon: Users, label: 'Team Size', value: '250+' },
-  { icon: Globe, label: 'Countries', value: '25+' },
-  { icon: TrendingUp, label: 'Growth', value: '35%' },
+  { icon: Building2, label: "Years Active", value: "15+" },
+  { icon: Users, label: "Team Size", value: "250+" },
+  { icon: Globe, label: "Countries", value: "25+" },
+  { icon: TrendingUp, label: "Growth", value: "35%" },
 ];
 
 // Sample data (could come from an API in a real app)
 const sampleCompanyData = {
-  name: 'Tech Innovators Inc.',
+  name: "Tech Innovators Inc.",
   description:
-    'A leading technology company providing cutting-edge solutions that aim to revolutionize industries with state-of-the-art technology, driving innovation and efficiency.',
-  location: 'San Francisco, CA',
-  contactEmail: 'info@techinnovators.com',
-  website: 'https://www.techinnovators.com',
-  logo: 'https://static.vecteezy.com/system/resources/thumbnails/011/883/287/small_2x/modern-letter-c-colorful-logo-with-watter-drop-good-for-technology-logo-company-logo-dummy-logo-bussiness-logo-free-vector.jpg', // Add logo path
-  backgroundImage: '/path/to/background.jpg', // Add background image
+    "A leading technology company providing cutting-edge solutions that aim to revolutionize industries with state-of-the-art technology, driving innovation and efficiency.",
+  location: "San Francisco, CA",
+  contactEmail: "info@techinnovators.com",
+  website: "https://www.techinnovators.com",
+  logo: "https://static.vecteezy.com/system/resources/thumbnails/011/883/287/small_2x/modern-letter-c-colorful-logo-with-watter-drop-good-for-technology-logo-company-logo-dummy-logo-bussiness-logo-free-vector.jpg", // Add logo path
+  backgroundImage: "/path/to/background.jpg", // Add background image
   socialLinks: {
-    twitter: 'https://twitter.com/techinnovators',
-    linkedin: 'https://www.linkedin.com/company/techinnovators',
-    facebook: 'https://facebook.com/techinnovators',
+    twitter: "https://twitter.com/techinnovators",
+    linkedin: "https://www.linkedin.com/company/techinnovators",
+    facebook: "https://facebook.com/techinnovators",
   },
   products: [
     {
-      name: 'AI Assistant',
-      description: 'A smart assistant that helps with daily tasks.',
-      price: '$199',
+      name: "AI Assistant",
+      description: "A smart assistant that helps with daily tasks.",
+      price: "$199",
     },
     {
-      name: 'Cloud Storage',
-      description: 'Secure cloud storage for businesses.',
-      price: '$9.99/month',
+      name: "Cloud Storage",
+      description: "Secure cloud storage for businesses.",
+      price: "$9.99/month",
     },
     {
-      name: 'Smart Home Devices',
-      description: 'Devices to make your home smarter and more efficient.',
-      price: '$49.99',
+      name: "Smart Home Devices",
+      description: "Devices to make your home smarter and more efficient.",
+      price: "$49.99",
     },
   ],
 };
 
 function CompanyPublicProfile() {
   const [companyData, setCompanyData] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     // Simulate fetching company data from an API or database
-    setCompanyData(sampleCompanyData);
-  }, []);
+    if (id) {
+      const data = allCompaniesData.filter((item) => item.id === Number(id));
+      console.log("data compy fler", data);
+      setCompanyData(data[0]);
+    }
+  }, [id]);
+
+  console.log("comapn", companyData);
 
   if (!companyData) {
     return <div className="text-center text-xl font-semibold">Loading...</div>;
@@ -238,18 +247,16 @@ function CompanyPublicProfile() {
             <div className="px-8 pb-8">
               <div className="relative">
                 <img
-                  src="https://i.ibb.co/tqr4R2N/image.png"
+                  src={companyData?.imageUrl}
                   alt="Company Logo"
                   className="w-32 h-32 rounded-lg border-4 bg-white border-white shadow-md absolute -mt-16"
                 />
                 <div className="ml-40 pt-6">
                   <h1 className="text-3xl font-bold text-[#393939]">
-                    Majestic Perfumes
+                    {companyData?.name}
                   </h1>
                   <p className="text-[#393939]/80 mt-2">
-                    A fragrance plays a very important part in shaping a
-                    person’s identity. It has the capacity to almost assume its
-                    own persona.
+                    {companyData?.short_title}
                   </p>
                 </div>
               </div>
@@ -272,34 +279,19 @@ function CompanyPublicProfile() {
                     About Us
                   </h2>
                   <p className="text-[#393939]/80">
-                    A fragrance plays a very important part in shaping a
-                    person’s identity.It has the capacity to almost assume its
-                    own persona. Born with the passion to introduce perfumery to
-                    discerning perfume lovers in a whole new shopping
-                    experience. Majestic Perfumes was established in the year
-                    2015 to cater to those who enjoy perfumery as a part of
-                    their lifestyle with exclusive range of perfumes with a
-                    strong incline towards masstige segment of the market. With
-                    the first store opening in Dubai, Majestic Perfumes
-                    developed a genuine passion for delighting customers with
-                    expert perfume knowledge and the highest customer service
-                    standards which remain at the forefront of everything the
-                    brand stands for today. Majestic is one of the few
-                    manufacturers to introduce differentiated masstige &
-                    prestige variants mix of few fragrances of international
-                    standards. Today, Majestic Perfumes is looking to penetrate
-                    the Indian market with its presence in different verticals.
+                    {companyData?.description}
                   </p>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-[#393939] mb-4">
                     Specialties
                   </h2>
-                  <ul className="space-y-2 text-[#393939]/80">
-                    <li>• Affordable Luxury</li>
-                    <li>• High Quality & Differentiated</li>
-                    <li>• Youthful & Global</li>
-                    <li>• Authentic & Personified</li>
+                  <ul className="space-y-2  list-disc text-[#393939]/80">
+                    {companyData?.specialities?.map((item, id) => (
+                      <li className=" " key={id}>
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
