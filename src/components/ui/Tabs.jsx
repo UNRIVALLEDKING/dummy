@@ -1,42 +1,17 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 
-export function Tabs({ defaultValue, className = '', children }) {
-  const [activeTab, setActiveTab] = React.useState(defaultValue);
+export function Tag({ children, variant = 'default' }) {
+  if (variant === 'count') {
+    return (
+      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#f37a1f]/10 text-[#f37a1f]">
+        +{children}
+      </span>
+    );
+  }
 
   return (
-    <div className={className} data-active-tab={activeTab}>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, { activeTab, setActiveTab });
-        }
-        return child;
-      })}
-    </div>
-  );
-}
-
-export function TabsList({ className = '', children }) {
-  return (
-    <div className={`flex space-x-2 p-1 rounded-lg ${className}`}>
+    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-[#393939] shadow-sm">
       {children}
-    </div>
+    </span>
   );
-}
-
-export function TabsTrigger({ value, children }) {
-  return (
-    <button
-      className="px-4 py-2 rounded-lg text-[#393939] hover:bg-gray-100 data-[state=active]:bg-[#f37a1f] data-[state=active]:text-white transition-colors"
-      data-state={value === arguments[0].activeTab ? 'active' : 'inactive'}
-      onClick={() => arguments[0].setActiveTab?.(value)}
-    >
-      {children}
-    </button>
-  );
-}
-
-export function TabsContent({ value, children }) {
-  if (value !== arguments[0].activeTab) return null;
-  return <div>{children}</div>;
 }

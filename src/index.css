@@ -23,3 +23,15 @@
     background: #dc2626 !important;
   }
 } */
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f37a1f;
+}
+
+.swiper-button-disabled > .swiper-button-prev {
+  visibility: hidden;
+}
+.swiper-button-disabled > .swiper-button-next {
+  visibility: hidden;
+}
