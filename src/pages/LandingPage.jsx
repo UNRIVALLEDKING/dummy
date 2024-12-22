@@ -16,7 +16,7 @@ import VideoShowcase from '../components/videos/VideoShowcase';
 import HomeSwiper from '../components/HomeSwiper';
 import RegionSection from '../components/RegionSection';
 import CountrySection from '../components/CountrySection';
-import ProductShowcase from '../components/products/productShowcase';
+import ProductShowcase from '../components/products/ProductShowcase';
 import BusinessCounselling from '../components/BusinessCounselling';
 
 export default function LandingPage() {
