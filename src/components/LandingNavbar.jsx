@@ -16,6 +16,9 @@ export default function LandingNavbar() {
   const openModal = () => {
     document.getElementById('login_modal').showModal();
   };
+  const openModal2 = () => {
+    document.getElementById('signup_modal').showModal();
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-[#d0d0c4]">
@@ -43,10 +46,10 @@ export default function LandingNavbar() {
               Login
             </a>
             <a
-              href="/sellers-login"
-              className="bg-[#f37a1f]  text-white px-6 py-2 rounded-full hover:bg-[#e06a10] transition-colors"
+              onClick={openModal2}
+              className="bg-[#f37a1f] cursor-pointer text-white px-6 py-2 rounded-full hover:bg-[#e06a10] transition-colors"
             >
-              Become seller
+              Sign Up
             </a>
           </div>
 
@@ -87,10 +90,13 @@ export default function LandingNavbar() {
                 Login
               </a>
               <a
-                href="/sellers-login"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  openModal2();
+                }}
                 className="bg-[#f37a1f] text-white px-6 py-2 rounded-full hover:bg-[#e06a10] transition-colors"
               >
-                Become seller
+                Sign up
               </a>
             </div>
           </div>

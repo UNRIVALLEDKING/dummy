@@ -162,3 +162,137 @@ export const Events = () => (
     </ul>
   </div>
 );
+
+// Feature content components
+export const GlobalMarketplace = () => (
+  <div className="space-y-6">
+    <p>
+      Connect with verified suppliers and buyers worldwide through our
+      comprehensive trading platform.
+    </p>
+  </div>
+);
+
+export const LiveBroadcasting = () => (
+  <div className="space-y-6">
+    <p>
+      Showcase products through live streams, interactive demos, and virtual
+      trade shows.
+    </p>
+  </div>
+);
+
+export const VerifiedPartners = () => (
+  <div className="space-y-6">
+    <p>
+      All suppliers and products undergo thorough verification for secure
+      trading.
+    </p>
+  </div>
+);
+
+export const BusinessNetwork = () => (
+  <div className="space-y-6">
+    <p>
+      Build lasting relationships with importers, exporters, manufacturers, and
+      distributors.
+    </p>
+  </div>
+);
+
+export const AnalyticsDashboard = () => (
+  <div className="space-y-6">
+    <p>Track performance, market trends, and business insights in real-time.</p>
+  </div>
+);
+
+export const Support24x7 = () => (
+  <div className="space-y-6">
+    <p>Access multilingual support and assistance whenever you need it.</p>
+  </div>
+);
+
+export const TechnicalAssistance = () => (
+  <div className="space-y-6">
+    <h4 className="font-semibold text-[#393939] mb-4">Technical Assistance</h4>
+    <p>
+      Get expert support for website development, SEO optimization, and
+      enhancing your digital presence. Our team will guide you through technical
+      challenges and help you build a stronger online presence.
+    </p>
+    <ul className="space-y-2">
+      <li>Website Development</li>
+      <li>SEO Optimization</li>
+      <li>Social Media Management</li>
+      <li>Digital Marketing Assistance</li>
+    </ul>
+  </div>
+);
+
+export const MarketingSupport = () => (
+  <div className="space-y-6">
+    <h4 className="font-semibold text-[#393939] mb-4">Marketing Support</h4>
+    <p>
+      Comprehensive marketing solutions that help you elevate your business.
+      From video production to podcasts and social media strategies, we offer
+      tools to build your brand and reach your audience.
+    </p>
+    <ul className="space-y-2">
+      <li>Video Production</li>
+      <li>Podcast Creation</li>
+      <li>Social Media Management</li>
+      <li>Targeted Digital Campaigns</li>
+    </ul>
+  </div>
+);
+
+export const DocumentationSupport = () => (
+  <div className="space-y-6">
+    <h4 className="font-semibold text-[#393939] mb-4">Documentation Support</h4>
+    <p>
+      Get guidance on important business registrations and documentation. We
+      assist with GST, IEC codes, FSSAI registration, and other essential
+      business documents to ensure you are compliant and ready to do business.
+    </p>
+    <ul className="space-y-2">
+      <li>GST Registration Assistance</li>
+      <li>IEC Code Application</li>
+      <li>FSSAI Registration</li>
+      <li>Business Documentation Support</li>
+    </ul>
+  </div>
+);
+
+export const HiringAssistance = () => (
+  <div className="space-y-6">
+    <h4 className="font-semibold text-[#393939] mb-4">Hiring Assistance</h4>
+    <p>
+      Our recruitment services help you find the best talent for your business.
+      From job postings to candidate screening and interviews, we support you
+      through every step of the hiring process.
+    </p>
+    <ul className="space-y-2">
+      <li>End-to-End Recruitment</li>
+      <li>Job Postings</li>
+      <li>Candidate Screening</li>
+      <li>Interview Coordination</li>
+    </ul>
+  </div>
+);
+
+export const FinancialSupport = () => (
+  <div className="space-y-6">
+    <h4 className="font-semibold text-[#393939] mb-4">Financial Support</h4>
+    <p>
+      Access tailored financial solutions for your business. We offer
+      low-interest loans and customized financing options to help your business
+      grow and succeed.
+    </p>
+    <ul className="space-y-2">
+      <li>Low-Interest Loans</li>
+      <li>Customized Financing Solutions</li>
+      <li>Cash Flow Management</li>
+      <li>Financial Planning</li>
+    </ul>
+  </div>
+);
