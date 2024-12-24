@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FileText, CheckCircle, Edit3, Trash2 } from "lucide-react";
+import { FileText, CheckCircle, Edit3, Trash2, XCircle } from "lucide-react";
 
 export default function KycDocuments() {
   const [userData, setUserData] = useState();
@@ -125,8 +125,10 @@ export default function KycDocuments() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              {doc.verified && (
+              {doc.verified ? (
                 <CheckCircle className="w-5 h-5 text-green-500" />
+              ) : (
+                <XCircle className="w-5 h-5 text-yellow-500" />
               )}
               <button
                 onClick={() => handleDelete(index)}

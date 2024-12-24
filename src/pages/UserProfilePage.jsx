@@ -5,6 +5,7 @@ import ContactInfo from "../components/user/ContactInfo";
 import CompanyInfo from "../components/user/CompanyInfo";
 import KycDocuments from "../components/user/KycDocuments";
 import SocialLinks from "../components/user/SocialLinks";
+import BankDetails from "../components/user/BankDetails";
 
 export default function UserProfilePage() {
   const [userData, setUserData] = useState(null);
@@ -157,6 +158,7 @@ export default function UserProfilePage() {
             <div className="p-8 space-y-8">
               <ContactInfo />
               <CompanyInfo />
+              <BankDetails />
               <KycDocuments />
               <SocialLinks />
             </div>

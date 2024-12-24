@@ -6,12 +6,20 @@ export default function ContactInfo() {
   const [contactInfo, setContactInfo] = useState({
     whatsappNumber: "",
     email: "",
-    address: "",
+    address: {
+      pinCode: "",
+      city: "",
+      state: "",
+      country: "",
+      houseNo: "",
+      area: "",
+      locality: "",
+      landmark: "",
+    },
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch data from localStorage
     const storedData = JSON.parse(localStorage.getItem("userData"));
     if (storedData) {
       setUserData(storedData);
@@ -23,16 +31,22 @@ export default function ContactInfo() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setContactInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (name.startsWith("address.")) {
+      const field = name.split(".")[1];
+      setContactInfo((prev) => ({
+        ...prev,
+        address: { ...prev.address, [field]: value },
+      }));
+    } else {
+      setContactInfo((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSave = () => {
-    // Save data to localStorage
     const data = { ...userData, contactInfo: { ...contactInfo } };
-    console.log("data", data);
     localStorage.setItem("userData", JSON.stringify(data));
     setIsModalOpen(false);
   };
@@ -85,34 +99,22 @@ export default function ContactInfo() {
             <MapPin className="w-5 h-5 text-[#f37a1f]" />
             <div>
               <p className="text-[#393939]">
-                {contactInfo?.address || "No data added"}
+                {contactInfo?.address
+                  ? `${contactInfo.address.houseNo}, ${contactInfo.address.area}, ${contactInfo.address.locality}, ${contactInfo.address.landmark}, ${contactInfo.address.city}, ${contactInfo.address.state}, ${contactInfo.address.pinCode}, ${contactInfo.address.country}`
+                  : "No data added"}
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6">
             <h3 className="text-lg font-semibold text-gray-700 mb-4">
               Edit Contact Information
             </h3>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm text-gray-600">
-                  Primary Phone
-                </label>
-                <input
-                  type="text"
-                  name="mobileNumber"
-                  disabled
-                  value={userData?.mobileNumber}
-                  onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:ring-[#f37a1f]"
-                />
-              </div>
+            <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm text-gray-600">
                   WhatsApp Number
@@ -135,16 +137,29 @@ export default function ContactInfo() {
                   className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:ring-[#f37a1f]"
                 />
               </div>
-              <div>
-                <label className="block text-sm text-gray-600">Address</label>
-                <textarea
-                  name="address"
-                  value={contactInfo.address}
-                  onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:ring-[#f37a1f]"
-                  rows="3"
-                ></textarea>
-              </div>
+              {[
+                { label: "Pin Code", name: "address.pinCode" },
+                { label: "City", name: "address.city" },
+                { label: "State", name: "address.state" },
+                { label: "Country", name: "address.country" },
+                { label: "House No./Block", name: "address.houseNo" },
+                { label: "Area/Street", name: "address.area" },
+                { label: "Locality", name: "address.locality" },
+                { label: "Landmark", name: "address.landmark" },
+              ].map((field) => (
+                <div key={field.name}>
+                  <label className="block text-sm text-gray-600">
+                    {field.label}
+                  </label>
+                  <input
+                    type="text"
+                    name={field.name}
+                    value={contactInfo.address[field.name.split(".")[1]] || ""}
+                    onChange={handleInputChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:ring-[#f37a1f]"
+                  />
+                </div>
+              ))}
             </div>
             <div className="mt-6 flex justify-end space-x-4">
               <button

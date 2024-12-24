@@ -1,11 +1,13 @@
 import { ArrowRight } from "lucide-react";
-import ProductCard from "./ProductCard";
-import sampleProducts from "./SampleProducts";
-import { Tag } from "../ui/Tabs";
+import SampleProductDeals from "./SampleProductDeals";
+import { Tag } from "../../ui/Tabs";
+import BestDealCard from "./BestDealCard";
 
 // eslint-disable-next-line react/prop-types
-export default function ProductShowcase({ title, subtitle, type }) {
-  const products = sampleProducts[type] || [];
+export default function BestDealShowCase({ title, subtitle }) {
+  console.log(SampleProductDeals);
+
+  const products = SampleProductDeals;
   const remainingCount = Math.max(0, products.length - 6);
 
   return (
@@ -24,7 +26,7 @@ export default function ProductShowcase({ title, subtitle, type }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.slice(0, 6).map((product) => (
-            <ProductCard key={product.id} product={product} size={"small"} />
+            <BestDealCard key={product.id} product={product} size={"small"} />
           ))}
 
           {remainingCount > 0 && (
