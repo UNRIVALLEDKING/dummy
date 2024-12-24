@@ -1,20 +1,20 @@
-import ServiceButtons from "../components/services/ServiceButtons";
+import ServiceButtons from '../components/services/ServiceButtons';
 
-import VideoShowcase from "../components/videos/VideoShowcase";
-import HomeSwiper from "../components/HomeSwiper";
-import RegionSection from "../components/RegionSection";
-import CountrySection from "../components/CountrySection";
-import ProductShowcase from "../components/products/ProductShowcase";
-import BusinessCounselling from "../components/BusinessCounselling";
-import TradeConfidence from "../components/TradeConfidence";
-import ProcessFlow from "../components/ProcessFlow";
-import IndianCities from "../components/IndianCities";
-import CategoryScroller from "../components/CategoryScroll";
-import Vision from "../components/Vision";
-import Mission from "../components/Mission";
-import Milestones from "../components/Milestone";
-import BestDealShowCase from "../components/products/bestdeals/bestDealShowCase";
-import EnquiryList from "../components/enquiries/EnquiryList";
+import VideoShowcase from '../components/videos/VideoShowcase';
+import HomeSwiper from '../components/HomeSwiper';
+import RegionSection from '../components/RegionSection';
+import CountrySection from '../components/CountrySection';
+import ProductShowcase from '../components/products/ProductShowcase';
+import BusinessCounselling from '../components/BusinessCounselling';
+import TradeConfidence from '../components/TradeConfidence';
+import ProcessFlow from '../components/ProcessFlow';
+import IndianCities from '../components/IndianCities';
+import CategoryScroller from '../components/CategoryScroll';
+import Vision from '../components/Vision';
+import Mission from '../components/Mission';
+import Milestones from '../components/Milestone';
+import BestDealShowCase from '../components/products/bestdeals/BestDealShowCase';
+import EnquiryList from '../components/enquiries/EnquiryList';
 
 export default function LandingPage() {
   return (
