@@ -5,6 +5,7 @@ import {
   X,
 } from 'lucide-react';
 import { mainLogo } from '../assets';
+import SecondaryNav from './SecondaryNavbar';
 
 export default function LandingNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -102,6 +103,7 @@ export default function LandingNavbar() {
           </div>
         )}
       </div>
+      <SecondaryNav />
     </nav>
   );
 }

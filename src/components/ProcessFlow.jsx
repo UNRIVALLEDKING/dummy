@@ -1,82 +1,141 @@
-import {
-  Search,
-  CheckSquare,
-  CreditCard,
-  Package,
-  Settings,
-} from 'lucide-react';
+import { MapPin, Link2, Lock, Truck, BarChart } from 'lucide-react';
 
 export default function ProcessFlow() {
   const steps = [
     {
-      icon: <Search className="w-6 h-6 text-primary" />,
-      title: 'Search for matches',
+      number: '01',
+      icon: <MapPin className="w-12 h-12" />,
+      title: 'Discover Tailored Opportunities',
       description:
-        'Search and filter from millions of product and supplier offerings to find the matching ones for your business.',
+        'Find suppliers, buyers, and products that match your needs with advanced search tools and interactive catalogs.',
+      position: 'bottom',
+      color: 'text-blue-500',
+      gradient: 'from-blue-500/20 to-blue-500/5',
     },
     {
-      icon: <CheckSquare className="w-6 h-6 text-primary" />,
-      title: 'Identify the right one',
+      number: '02',
+      icon: <Link2 className="w-12 h-12" />,
+      title: 'Connect with the Right Partners',
       description:
-        'Compare products, verify suppliers, and choose the perfect match for your needs.',
+        'Use intelligent filters to find and connect with the best partners, supported by detailed company profiles.',
+      position: 'top',
+      color: 'text-orange-500',
+      gradient: 'from-orange-500/20 to-orange-500/5',
     },
     {
-      icon: <CreditCard className="w-6 h-6 text-primary" />,
-      title: 'Pay with confidence',
+      number: '03',
+      icon: <Lock className="w-12 h-12" />,
+      title: 'Secure Transactions with Confidence',
       description:
-        'Secure payment options with buyer protection for peace of mind.',
+        'Ensure safe transactions and manage orders with a secure payment system and centralized dashboard.',
+      position: 'bottom',
+      color: 'text-gray-500',
+      gradient: 'from-gray-500/20 to-gray-500/5',
     },
     {
-      icon: <Package className="w-6 h-6 text-primary" />,
-      title: 'Fulfill with transparency',
+      number: '04',
+      icon: <Truck className="w-12 h-12" />,
+      title: 'Achieve Transparent Fulfillment',
       description:
-        'Track your order from production to delivery with real-time updates.',
+        'Track orders in real-time and optimize deliveries with data-driven strategies for efficiency.',
+      position: 'top',
+      color: 'text-yellow-500',
+      gradient: 'from-yellow-500/20 to-yellow-500/5',
     },
     {
-      icon: <Settings className="w-6 h-6 text-primary" />,
-      title: 'Manage with ease',
+      number: '05',
+      icon: <BarChart className="w-12 h-12" />,
+      title: 'Innovate and Scale with Intelligence',
       description:
-        'Streamlined order management and support throughout the process.',
+        'Leverage analytics to identify growth opportunities and customize features to scale your business.',
+      position: 'bottom',
+      color: 'text-blue-500',
+      gradient: 'from-blue-500/20 to-blue-500/5',
     },
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-secondary text-center mb-12">
-          Streamline ordering from search to fulfillment, all in one place
+    <section className="py-20 bg-background overflow-x-hidden">
+      <div className="mx-auto px-4">
+        <h2 className="text-4xl font-bold text-secondary text-center mb-20">
+          SmartTrade Evolution Process
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="relative">
-            <div className="absolute w-0.5 bg-primary/20 top-0 bottom-0 left-6 -ml-px"></div>
-            <div className="space-y-12">
-              {steps.map((step, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center relative z-10">
-                    {step.icon}
+        <div className="relative mx-auto">
+          {/* Central Line */}
+          <div className="absolute left-0 right-0 h-2 bg-gradient-to-r from-blue-500 via-primary to-blue-500 top-1/2 -translate-y-1 rounded-full shadow-lg" />
+
+          <div className="relative grid grid-cols-5 gap-8">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={`flex flex-col ${
+                  step.position === 'top'
+                    ? 'items-center mb-80'
+                    : 'items-center mt-[25rem]'
+                }`}
+              >
+                {/* Content Container */}
+                <div
+                  className={`flex flex-col items-center ${
+                    step.position === 'top' ? 'order-1' : 'order-3'
+                  } 
+                    group transition-all duration-300 hover:-translate-y-2`}
+                >
+                  <div
+                    className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${step.gradient} 
+                    shadow-lg flex items-center justify-center mb-4 transform transition-all duration-300 
+                    group-hover:shadow-xl group-hover:scale-110 relative`}
+                  >
+                    <div
+                      className={`${step.color} transition-transform duration-300 group-hover:scale-110`}
+                    >
+                      {step.icon}
+                    </div>
+                    <div className="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                   </div>
-                  <div className="ml-6">
-                    <h3 className="text-xl font-semibold text-secondary mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-tri">{step.description}</p>
-                  </div>
+                  <h3
+                    className={`text-xl text-center font-bold mb-2 ${step.color}`}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-secondary text-center text-sm max-w-[180px] opacity-80">
+                    {step.description}
+                  </p>
                 </div>
-              ))}
-            </div>
+
+                {/* Number */}
+                <div
+                  className={`order-2 relative ${
+                    step.position === 'top' ? 'mt-8' : 'mb-8'
+                  }`}
+                >
+                  <div
+                    className={`w-14 h-14 rounded-full bg-white shadow-lg flex items-center justify-center 
+                    ${step.color} border-2 border-current transform transition-transform duration-300 hover:scale-110`}
+                  >
+                    <span className="text-2xl font-bold">{step.number}</span>
+                  </div>
+                  {/* Triangle Pointer */}
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 
+                    border-current ${step.color} ${
+                      step.position === 'top'
+                        ? 'bottom-[-0.65rem] border-b border-r'
+                        : 'top-[-0.65rem] border-t border-l'
+                    }`}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="relative hidden md:block">
-            <div className="sticky top-24 space-y-8">
-              <img
-                src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&q=80"
-                alt="Product search"
-                width={500}
-                height={300}
-                className="rounded-lg shadow-lg w-full"
-              />
-            </div>
+          {/* Responsive Note */}
+          <div className="md:hidden text-center mt-8 text-tri">
+            <p>
+              Please view on a larger screen for the complete timeline
+              visualization.
+            </p>
           </div>
         </div>
       </div>

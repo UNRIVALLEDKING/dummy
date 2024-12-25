@@ -1,148 +1,149 @@
+/* eslint-disable react/prop-types */
+import {
+  Facebook,
+  Instagram,
+  LinkedinIcon,
+  TwitterIcon,
+  Youtube,
+} from 'lucide-react';
 import { mainLogo } from '../assets';
 
 export default function Footer() {
+  function FooterSection({ title, children }) {
+    return (
+      <div>
+        <h4 className="text-lg font-semibold text-white mb-4">{title}</h4>
+        {children}
+      </div>
+    );
+  }
+  const socialLinks = [
+    { icon: Youtube, href: '', label: 'YouTube' },
+    { icon: Instagram, href: '', label: 'Instagram' },
+    { icon: Facebook, href: '', label: 'Facebook' },
+    { icon: TwitterIcon, href: '', label: 'Twitter' },
+    { icon: LinkedinIcon, href: '', label: 'LinkedIn' },
+  ];
+
+  function SocialLinks() {
+    return (
+      <div className="flex space-x-4">
+        {socialLinks.map((social) => (
+          <a
+            key={social.label}
+            href={social.href}
+            className="text-[#d0d0c4] hover:text-[#f37a1f] transition-colors"
+            aria-label={social.label}
+          >
+            <social.icon className="w-6 h-6" />
+          </a>
+        ))}
+      </div>
+    );
+  }
+
+  function FooterLink({ href, children }) {
+    return (
+      <a
+        href={href}
+        className="block text-[#d0d0c4] hover:text-[#f37a1f] transition-colors py-1"
+      >
+        {children}
+      </a>
+    );
+  }
   return (
-    <footer className="bg-[#393939] text-white py-12">
+    <footer className="bg-[#393939] text-white py-16">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          {/* Company Section */}
+          <FooterSection title="Company">
+            <div className="space-y-2">
+              <FooterLink href="/about">About us</FooterLink>
+              <FooterLink href="/why-choose-us">Why choose us</FooterLink>
+              <FooterLink href="/contact">Contact us</FooterLink>
+              <FooterLink href="/careers">Career</FooterLink>
+              <FooterLink href="/faq">FAQ</FooterLink>
+              <FooterLink href="/feedback">Feedback & Suggestions</FooterLink>
+            </div>
+          </FooterSection>
+
+          {/* For Investors Section */}
+          <FooterSection title="For Investors">
+            <div className="space-y-2">
+              <FooterLink href="/vision">
+                Vision, Mission & Milestones
+              </FooterLink>
+              <FooterLink href="/responsibility">
+                Corporate Responsibility
+              </FooterLink>
+              <FooterLink href="/clients">Trusted Clients</FooterLink>
+            </div>
+          </FooterSection>
+
+          {/* Services Section */}
+          <FooterSection title="Services">
+            <div className="space-y-2">
+              <FooterLink href="/services/documentation">
+                Documentation
+              </FooterLink>
+              <FooterLink href="/services/technical">Technical</FooterLink>
+              <FooterLink href="/services/financial">Financial</FooterLink>
+              <FooterLink href="/services/marketing">Marketing</FooterLink>
+              <FooterLink href="/services/hiring">Hiring</FooterLink>
+              <FooterLink href="/services/counseling">Counseling</FooterLink>
+              <FooterLink href="/services/design">
+                Designing & Packaging
+              </FooterLink>
+            </div>
+          </FooterSection>
+
+          {/* Quick Links Section */}
+          <FooterSection title="Quick Links">
+            <div className="space-y-2">
+              <FooterLink href="/features">All Features</FooterLink>
+              <FooterLink href="/trade-shows">
+                Trade Shows & Broadcasting
+              </FooterLink>
+              <FooterLink href="/webinar">Free Webinar</FooterLink>
+              <FooterLink href="/blog">Blogs</FooterLink>
+              <FooterLink href="/news">News & Alerts</FooterLink>
+              <FooterLink href="/events">Events & Sponsorships</FooterLink>
+            </div>
+          </FooterSection>
+
+          {/* Pricing Section */}
+          <FooterSection title="Pricing">
+            <div className="space-y-2">
+              <FooterLink href="/pricing/membership">
+                Membership Plans
+              </FooterLink>
+              <FooterLink href="/pricing/assistance">
+                Assistance Plans
+              </FooterLink>
+            </div>
+          </FooterSection>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mt-12 pt-8 border-t border-[#d0d0c4]/20">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2">
               <img
                 src={mainLogo}
                 className="w-44 bg-white rounded-lg shadow-xl p-2 text-[#f37a1f]"
               />
             </div>
-            <p className="text-[#d0d0c4]">
-              Revolutionizing global trade and business networking.
-            </p>
+            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+              <SocialLinks />
+              <p className="text-[#d0d0c4] text-sm">
+                &copy; {new Date().getFullYear()} List2Ship. All rights
+                reserved.
+              </p>
+            </div>
           </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-[#d0d0c4]">
-              <li>
-                <a href="/features" className="hover:text-[#f37a1f]">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="hover:text-[#f37a1f]">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-[#f37a1f]">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-[#f37a1f]">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">For Investors</h4>
-            <ul className="space-y-2 text-[#d0d0c4]">
-              <li>
-                <a href="/features" className="hover:text-[#f37a1f]">
-                  Vision, Mission & Milestones
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="hover:text-[#f37a1f]">
-                  Corporate Responsibility
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-[#f37a1f]">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-[#f37a1f]">
-                  Feedback & Suggestions Form
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Assistance</h4>
-            <ul className="space-y-2 text-[#d0d0c4]">
-              <li>
-                <a href="/features" className="hover:text-[#f37a1f]">
-                  Legal
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="hover:text-[#f37a1f]">
-                  Technical
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-[#f37a1f]">
-                  Financial
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-[#f37a1f]">
-                  Marketing
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-[#f37a1f]">
-                  Hiring
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Pricing</h4>
-            <ul className="space-y-2 text-[#d0d0c4]">
-              <li>
-                <a href="/features" className="hover:text-[#f37a1f]">
-                  Membership Plans
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-[#a4b6c2]/20 mt-8 pt-8 text-center text-[#d0d0c4]">
-          <p>
-            &copy; {new Date().getFullYear()} List2Ship. All rights reserved.
-          </p>
         </div>
       </div>
-
-      {/* <nav>
-          <h6 className="footer-title text-secondary font-bold text-xl">
-            Quick Links
-          </h6>
-          <a className="link link-hover hover:text-primary">
-            HSN Code & Duties{' '}
-          </a>
-          <a className="link link-hover hover:text-primary">
-            Video Marketing & Live Streams
-          </a>
-          <a className="link link-hover hover:text-primary">Free Webinar</a>
-          <a className="link link-hover hover:text-primary">Blogs</a>
-          <a className="link link-hover hover:text-primary">Hiring</a>
-        </nav>
-        
-        <nav>
-          <h6 className="footer-title text-secondary font-bold text-xl">
-            Contact us
-          </h6>
-          <p className="link link-hover hover:text-primary">
-            ABC, xyz, Navi Mumbai - 400706
-          </p>
-          <p className="link link-hover hover:text-primary">+91 99999 99999</p>
-          <p className="link link-hover hover:text-primary">
-            info@list2Ship.com
-          </p>
-        </nav> */}
     </footer>
   );
 }

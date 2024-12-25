@@ -137,7 +137,7 @@ export default function ServiceButtons() {
             1024: { slidesPerView: 6 },
           }}
           modules={[Navigation, Autoplay]}
-          className="!pb-12 swiper-button-disabled"
+          className="!pb-12"
         >
           {services.map((service, index) => (
             <SwiperSlide key={index}>

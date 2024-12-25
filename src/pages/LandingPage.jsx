@@ -5,8 +5,8 @@ import HomeSwiper from '../components/HomeSwiper';
 import RegionSection from '../components/RegionSection';
 import CountrySection from '../components/CountrySection';
 import ProductShowcase from '../components/products/ProductShowcase';
-import BusinessCounselling from '../components/BusinessCounselling';
-import TradeConfidence from '../components/TradeConfidence';
+// import BusinessCounselling from '../components/BusinessCounselling';
+// import TradeConfidence from '../components/TradeConfidence';
 import ProcessFlow from '../components/ProcessFlow';
 import IndianCities from '../components/IndianCities';
 import CategoryScroller from '../components/CategoryScroll';
@@ -15,6 +15,7 @@ import Mission from '../components/Mission';
 import Milestones from '../components/Milestone';
 import BestDealShowCase from '../components/products/bestdeals/BestDealShowCase';
 import EnquiryList from '../components/enquiries/EnquiryList';
+import Explore from '../components/Explore';
 
 export default function LandingPage() {
   return (
@@ -53,15 +54,16 @@ export default function LandingPage() {
       />
 
       <div className="container mx-auto mb-10 px-6 ">
-        <h2 className="text-3xl font-bold text-[#393939]">Live Enquiry </h2>
+        <h2 className="text-3xl font-bold text-[#393939]">Enquiries</h2>
         <EnquiryList />
       </div>
-      <TradeConfidence />
+      {/* <TradeConfidence /> */}
+      <Explore />
       <ProcessFlow />
       <Vision />
       <Mission />
       <Milestones />
-      <BusinessCounselling />
+      {/* <BusinessCounselling /> */}
       <VideoShowcase />
     </main>
   );
