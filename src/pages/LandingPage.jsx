@@ -16,6 +16,7 @@ import Milestones from '../components/Milestone';
 import BestDealShowCase from '../components/products/bestdeals/BestDealShowCase';
 import EnquiryList from '../components/enquiries/EnquiryList';
 import Explore from '../components/Explore';
+import LiveStreamShowcase from '../components/LiveStreamShowcase';
 
 export default function LandingPage() {
   return (
@@ -54,10 +55,11 @@ export default function LandingPage() {
       />
 
       <div className="container mx-auto mb-10 px-6 ">
-        <h2 className="text-3xl font-bold text-[#393939]">Enquiries</h2>
+        <h2 className="text-3xl font-bold text-[#393939]">Live Enquiries</h2>
         <EnquiryList />
       </div>
       {/* <TradeConfidence /> */}
+      <LiveStreamShowcase />
       <Explore />
       <ProcessFlow />
       <Vision />
